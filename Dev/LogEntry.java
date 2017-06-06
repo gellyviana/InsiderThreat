@@ -1,23 +1,22 @@
 /**
- * Armazena a data de uma simples linha do
- * serviço web do arquivo log.
+ * Armazena os campos de linha de uma arquivo csv num 
+ * array.
  * Campos individual são disponibilizados através de
- * getHour() e getMinute().
+ * 05 métodos gets.
  * 
- * @author David J. Barnes and Michael Kolling.
- * @version 2008.03.30
- */
+ * Baseado no projeto weblog-analyzer (capítulo 4)
+ * Livro Programação orientada a objetos com JAVA
+ * David J. Barnes and Michael Kolling (versão 2008.03.30) 
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.04 */
 public class LogEntry implements Comparable<LogEntry>{
-	//Onde os valores da data de uma simples linha de log 
-	//são armazenados
-	//private int[] dataValues;
+	//Onde os valores dos campos de uma simples linha de 
+	//um arquivo csv são armazenados
 	private String[] fieldValues;
-	//Em qual índice em dataValues ​​os diferentes campos
+	//Em qual índice em fielValues ​​os diferentes campos
 	//de uma linha de registro são armazenados.
-	//private static final int YEAR = 0, MONTH = 1, DAY = 2, 
-	//					     HOUR = 3, MINUTE = 4;
-	private static final int ID = 0, DATE = 1, USER = 2,
-					            PC = 3, ACTIVITY = 4;
+	private static final int FIELD1 = 0, FIELD2 = 1, FIELD3 = 2,
+					            FIELD4 = 3, FIELD5 = 4;
 		
 	/**
 	 * Decomponhe a linha de log em campos individuais
@@ -25,33 +24,51 @@ public class LogEntry implements Comparable<LogEntry>{
 	 * @param logline Uma simple linha do log.
 	 */
 	public LogEntry(String logline){
-		// A array que armazena o data da linha simples.
-		//dataValues = new int[5];
+		// Um array que armazena os campos de uma linha do arquivo.
 		fieldValues = new String[5];
-		// Separa a linha log.
+		// Separa a linha do arquivo.
 		LoglineTokenizer tokenizer = new LoglineTokenizer();
-		//tokenizer.tokenize(logline, dataValues);
 		tokenizer.tokenize(logline, fieldValues);
 	}
 	
-	public String getId(){
-		return fieldValues[ID];
+	/**
+	 * Método que retorna a string do campo1
+	 * @return String   A String que tem no campo1 
+	 */
+	public String getField1(){
+		return fieldValues[FIELD1];
 	}
 	
-	public String getDate(){
-		return fieldValues[DATE];
+	/**
+	 * Método que retorna a string do campo2
+	 * @return String   A String que tem no campo2 
+	 */
+	public String getField2(){
+		return fieldValues[FIELD2];
 	}
 	
-	public String getUser(){
-		return fieldValues[USER];
+	/**
+	 * Método que retorna a string do campo3
+	 * @return String   A String que tem no campo3 
+	 */
+	public String getField3(){
+		return fieldValues[FIELD3];
 	}
 	
-	public String getPc(){
-		return fieldValues[PC];
+	/**
+	 * Método que retorna a string do campo4
+	 * @return String   A String que tem no campo4 
+	 */
+	public String getField4(){
+		return fieldValues[FIELD4];
 	}
 	
-	public String getActivity(){
-		return fieldValues[ACTIVITY];
+	/**
+	 * Método que retorna a string do campo5
+	 * @return String   A String que tem no campo5 
+	 */
+	public String getField5(){
+		return fieldValues[FIELD5];
 	}
 	
 	/**
