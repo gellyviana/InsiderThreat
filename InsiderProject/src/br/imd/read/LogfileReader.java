@@ -1,6 +1,7 @@
 package br.imd.read;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -51,7 +52,10 @@ public class LogfileReader
         boolean dataRead;
         try{
             // Locate the file with respect to the current environment.
-            URL fileURL = getClass().getClassLoader().getResource(filename);
+        	String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
+            URL fileURL = new URL(caminho + filename);
+            		//getClass().getClassLoader().getResource(filename); //getResouce pega o arquivo na pasta bin
+            
             if(fileURL == null) {
                 throw new FileNotFoundException(filename);
             }
@@ -73,6 +77,10 @@ public class LogfileReader
         catch(URISyntaxException e) {
             System.out.println("Problem encountered: " + e);
             dataRead = false;
+        } 
+        catch(MalformedURLException e){
+        	System.out.println("Deu erro");
+        	dataRead = false;
         }
         // If we couldn't read the log file, use simulated data.
         if(!dataRead) {
@@ -136,67 +144,12 @@ public class LogfileReader
             System.out.println(entry);
         }
     }
-
-    /**
-     * Provide a sample of simulated data.
-     * NB: To simplify the creation of this data, no
-     * days after the 28th of a month are ever generated.
-     * @param data Where to store the simulated LogEntry objects.
-     */
-    //private void createSimulatedData(ArrayList<LogEntry> data)
-    //{
-        // For each data item (year, month, day, hour, min) the lowest
-        // valid value is listed.
-      //  int[] lowest = { 2006, 1, 1, 0, 0, };
-        // For each data item (year, month, day, hour, min) the range of
-        // valid values is listed. (Note the simplification of having
-        // only 28 days in any month to avoid generating invalid dates.)
-        //int[] range = { 3, 12, 28, 24, 60 };
-        // Use a fixed seed to generate the random data, so
-        // that the data is reproducable.
-        //Random rand = new Random(12345);
-        // Build each simulated line in a string buffer.
-        //StringBuffer line = new StringBuffer();
-        // How many simulated lines we want.
-        //int numLines = 100;
-        // The number of data values per simulated line.
-        //int itemsPerLine = lowest.length;
-        //for(int i = 0; i < numLines; i++) {
-          //  for(int j = 0; j < itemsPerLine; j++) {
-            //    int value = lowest[j]+rand.nextInt(range[j]);
-              //  line.append(value);
-                //line.append(' ');
-            //}
-            // Convert the line to a LogEntry.
-            //LogEntry entry = new LogEntry(line.toString());
-            //data.add(entry);
-            //line.setLength(0);
-        //}
-    //}
     
-    //public static void main (String[] args){
+   public static void main (String[] args){
     	
-    	LogfileReader testeLer = new LogfileReader("device.csv");
+  	LogfileReader testeLer = new LogfileReader("device.csv");
     	
-    	LogfileReader testeLer1 = new LogfileReader("ldap.csv");
-    	//String test = "{S7A7-Y8QZ65MW-8738SAZP},01/04/2010 07:12:31,DTAA/RES0962,PC-3736,Connect";
-    	//String test1 = "{G7A8-G1OB94NR-3006NTXH},01/04/2010 07:35:40,DTAA/BJC0569,PC-2588,Connect";
-    	//LogEntry entry = new LogEntry(test);
-    	//LogEntry entry1 = new LogEntry(test1);
-    	//LoglineTokenizer log = new LoglineTokenizer();
-		
-		//String[] dataLine = new String[5];
-		//log.tokenize(test, dataLine);
-    	//System.out.println(entry.getId());
-    	//System.out.println(entry.getDate());
-    	//System.out.println(entry.getUser());
-    	//System.out.println(entry.getPc());
-    	//System.out.println(entry.getActivity());
-    	
-    	//System.out.println(entry.compareTo(entry1));
-    	//System.out.println(entry.compareTo(entry));
-    	
-	//}
+	}
 }
 
 

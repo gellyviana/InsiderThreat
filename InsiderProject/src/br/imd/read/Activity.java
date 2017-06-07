@@ -1,15 +1,44 @@
 package br.imd.read;
 
-public class Activity {
+import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+
+public class Activity{
 	private String id;
 	private Date date;
 	private Date time;
 	private String domain;
 	private String user;
 	
-	public Activity(){
-		
+	public Activity(String[] activityLine){
+		this.id = activityLine[0];
+		converteDate(activityLine[1]);
+		separete(activityLine[2]);
 	}
+	
+	public void separete(String field){
+		String[] aux = field.split("/");
+		this.domain = aux[0];
+		this.user = aux[1];
+	}
+	
+	public void converteDate(String field){
+		String[] dateSepareted = field.split(" ");
+		System.out.println(dateSepareted[0]);
+		System.out.println(dateSepareted[1]);
+		
+		DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		LocalDate date = LocalDate.parse(dateSepareted[0],d);
+		System.out.println("A data e: " + date);
+		
+		DateTimeFormatter t = DateTimeFormatter.ofPattern("HH:mm:ss");
+		LocalTime time = LocalTime.parse(dateSepareted[1],t);
+		System.out.println("A hora e: " + time);
+	}
+		
 	public String getId() {
 		return id;
 	}
@@ -28,35 +57,13 @@ public class Activity {
 
 	public String getUser() {
 		return user;
-	}
-	
-	
+	}	
 }
-/**
-
-String[] textoSeparado = alunoRecebido.split(";\\s");
-
-import java.util.Calendar;
-
-import java.util.Date;
 
 
 
-public class Conversao_Datas{
 
-	//public static void main(String[] args) throws ParseException{
-		Calendar c = Calendar.getInstance();
-		Date data = c.getTime();
-		DateFormat f = DateFormat.getDateInstance();
-		
-		Date data2 = f.parse("12/01/1995");
-		System.out.println(data2);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		System.out.println("Data formatada: "+sdf.format(data));
-		
-		//Converte Objetos
-		System.out.println(“Data convertida: ”+sdf.parse("02/08/1970"));
-	}
-//}
- */
+
+	
+
+

@@ -9,8 +9,12 @@ public class User {
 	private String domain;
 	private String role;
 	
-	public User(){
-		
+	public User(String[] userLine){
+		this.name = userLine[0];
+		this.userId = userLine[1];
+		this.email = userLine[2];
+		this.domain = userLine[3];
+		this.role = userLine[4];
 	}
 	public String getName() {
 		return name;
