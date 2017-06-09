@@ -1,11 +1,15 @@
-package br.imd.read;
+   package br.imd.read;
 
 
 public class MainLeituraArquivo {
 
 	 public static void main (String[] args){
-	LogfileReader logfileReaderDevice = new LogfileReader();
 	
-	//logfileReaderDevice.LogfileReader("device");
+		 Maneger maneger = new Maneger("ldap.csv");
+		
+		 //LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
+		 //logfileReaderDevice.printData();
+	
+		 //logfileReaderDevice.LogfileReader("device");
 	 }
 }

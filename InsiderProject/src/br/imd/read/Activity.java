@@ -12,6 +12,7 @@ public class Activity{
 	private Date time;
 	private String domain;
 	private String user;
+	private String equipament;
 	
 	public Activity(String[] activityLine){
 		this.id = activityLine[0];
@@ -57,7 +58,11 @@ public class Activity{
 
 	public String getUser() {
 		return user;
-	}	
+	}
+	
+	public String getEquipament(){
+		return equipament;
+	}
 }
 
 

@@ -2,6 +2,23 @@ package br.imd.read;
 
 public class GenerateObject {
 	
+	private User user;
+	private Activity activity;
+		
+	public GenerateObject() {}
+	
+	public GenerateObject(String[] line){
+		this.user = null;
+		this.activity = null;
+		if ((line[0].contains("{")) || (line[0].contains("}"))){
+			activity = createActivity(line);
+		}else{
+			user = createUsuario(line);
+			System.out.println(user.toString());
+		}
+	}
+	
+	
 	public User createUsuario(String[] userLine){
 		return new User(userLine);
 	}
@@ -18,5 +35,14 @@ public class GenerateObject {
 		}
 		
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+	
 
 }

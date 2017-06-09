@@ -1,7 +1,7 @@
 package br.imd.read;
-/**
 
- * Armazena os campos de linha de uma arquivo csv num 
+/**
+ * Armazena os campos de linha de um arquivo csv num 
  * array.
  * Campos individual são disponibilizados através de
  * 05 métodos gets.
@@ -15,11 +15,14 @@ public class LogEntry implements Comparable<LogEntry>{
 	//Onde os valores dos campos de uma simples linha de 
 	//um arquivo csv são armazenados
 	private String[] fieldValues;
+	
 	//Em qual índice em fielValues ​​os diferentes campos
 	//de uma linha de registro são armazenados.
 	private static final int FIELD1 = 0, FIELD2 = 1, FIELD3 = 2,
 					            FIELD4 = 3, FIELD5 = 4;
 		
+	public LogEntry() {}
+	
 	/**
 	 * Decomponhe a linha de log em campos individuais
 	 * são disponíveis
@@ -71,6 +74,10 @@ public class LogEntry implements Comparable<LogEntry>{
 	 */
 	public String getField5(){
 		return fieldValues[FIELD5];
+	}
+	
+	public String[] getFields(){
+		return fieldValues;
 	}
 	
 	/**

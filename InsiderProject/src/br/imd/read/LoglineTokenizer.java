@@ -31,7 +31,7 @@ public class LoglineTokenizer {
 		try {
 			for (int i = 0; i < dataLine.length; i++){
 				dataLine[i] = tokenizer.next();
-				System.out.println(dataLine[i] + " Campo " + i);
+				//System.out.println(dataLine[i] + " Campo " + i);
 			}
 		}
 		catch(java.util.NoSuchElementException e){

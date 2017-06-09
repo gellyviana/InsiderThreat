@@ -28,13 +28,12 @@ public class LogfileReader
     // An iterator over entries.
     private Iterator<LogEntry> dataIterator;
     
+    private String logline;
+    
     /**
-     * Cria um LogfileReader para fornecer dados de uma arquivo.
+     * Cria um construtor da classe LogfileReader vazio.
      */
-    public LogfileReader()
-    {
-        this("ldap.csv");
-    }
+    public LogfileReader() {}
     
     /**
      * Cria um LogfileReader que that will supply data
@@ -94,6 +93,9 @@ public class LogfileReader
         reset();
     }
     
+    /**public String getLogline(){
+    	return 
+    }
     /**
      * Does the reader have more data to supply?
      * @return true if there is more data available,
@@ -111,6 +113,7 @@ public class LogfileReader
      * @return A LogEntry containing the data from the
      *         next log line.
      */
+    
     public LogEntry nextEntry()
     {
         return dataIterator.next();
@@ -145,11 +148,9 @@ public class LogfileReader
         }
     }
     
-   public static void main (String[] args){
-    	
-  	LogfileReader testeLer = new LogfileReader("device.csv");
-    	
-	}
+    public ArrayList<LogEntry> getLogEntry(){
+    	return entries;
+    }
 }
 
 
