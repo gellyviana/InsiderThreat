@@ -13,13 +13,13 @@ public class GenerateObject {
 		if ((line[0].contains("{")) || (line[0].contains("}"))){
 			activity = createActivity(line);
 		}else{
-			user = createUsuario(line);
+			user = createUser(line);
 			System.out.println(user.toString());
 		}
 	}
 	
 	
-	public User createUsuario(String[] userLine){
+	public User createUser(String[] userLine){
 		return new User(userLine);
 	}
 	
@@ -28,7 +28,7 @@ public class GenerateObject {
 			return new Device(activityLine);
 		}else{
 			if((activityLine[4].equals("logon")) || (activityLine[4].equals("logon"))){
-				return new Log(activityLine);
+				return new Logon(activityLine);
 			}else{
 				return new Http(activityLine);
 			}

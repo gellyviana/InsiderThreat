@@ -1,10 +1,9 @@
 package br.imd.tree;
 
 
-
 public class Tree {
 	
-	/**private No root;
+	private No root;
 	
 	public Tree(){
 		this.root = null;
