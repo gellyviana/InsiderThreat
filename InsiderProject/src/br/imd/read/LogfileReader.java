@@ -51,7 +51,8 @@ public class LogfileReader
         boolean dataRead;
         try{
             // Locate the file with respect to the current environment.
-        	String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
+        	String caminho = "file:///home/gelly/workspace/InsiderThreat/InsiderProject/log/";
+        	//String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
             URL fileURL = new URL(caminho + filename);
             		//getClass().getClassLoader().getResource(filename); //getResouce pega o arquivo na pasta bin
             
