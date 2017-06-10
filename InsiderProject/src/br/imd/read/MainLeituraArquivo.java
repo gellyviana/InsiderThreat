@@ -6,15 +6,32 @@ public class MainLeituraArquivo {
 
 	public static void main(String[] args) {
 
-		// Maneger maneger = new Maneger("ldap.csv");
+		Maneger maneger = new Maneger("ldap.csv");
 
-		// LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
-		// logfileReaderDevice.printData();
+		LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
+		
+		//logfileReaderDevice.printData();
+		
+		Maneger maneger1 = new Maneger("logon-sumarizado.csv");
 
-		// logfileReaderDevice.LogfileReader("device");
-		PrimeView v = new PrimeView();
-		v.start();
-		v.setVisible(true);
+		LogfileReader logfileReaderDevice1 = new LogfileReader("logon-sumarizado.csv");
+		
+		//logfileReaderDevice1.printData();
+
+		Maneger maneger2 = new Maneger("device.csv");
+
+		LogfileReader logfileReaderDevice2 = new LogfileReader("device.csv");
+		
+		Maneger maneger3 = new Maneger("http-sumarizado.csv");
+
+		LogfileReader logfileReaderDevice3 = new LogfileReader("http-sumarizado.csv");
+
+		//logfileReaderDevice2.printData();
+		
+		// logfileReaderDevice3.LogfileReader("http-sumarizado");
+		//PrimeView v = new PrimeView();
+		//v.start();
+		//v.setVisible(true);
 
 	}
 }

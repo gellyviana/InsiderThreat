@@ -36,8 +36,8 @@ public class LogfileReader
     public LogfileReader() {}
     
     /**
-     * Cria um LogfileReader que that will supply data
-     * from a particular log file. 
+     * Cria um LogfileReader que recebe o nome de um arquivo
+     * para ser lido, e coloca as linhas em array de String. 
      * @param filename The file of log data.
      */
     public LogfileReader(String filename)
@@ -51,8 +51,8 @@ public class LogfileReader
         boolean dataRead;
         try{
             // Locate the file with respect to the current environment.
-        	String caminho = "file:///home/gelly/workspace/InsiderThreat/InsiderProject/log/";
-        	//String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
+        	//String caminho = "file:///home/gelly/workspace/InsiderThreat/InsiderProject/log/";
+        	String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
             URL fileURL = new URL(caminho + filename);
             		//getClass().getClassLoader().getResource(filename); //getResouce pega o arquivo na pasta bin
             
@@ -86,21 +86,16 @@ public class LogfileReader
         if(!dataRead) {
             System.out.println("Failed to read the data file: " +
                                filename);
-            System.out.println("Using simulated data instead.");
-           // createSimulatedData(entries);
         }
-        // Sort the entries into ascending order.
+        // Ordena a coleção em ordem crescente.
         Collections.sort(entries);
         reset();
     }
     
-    /**public String getLogline(){
-    	return 
-    }
-    /**
-     * Does the reader have more data to supply?
-     * @return true if there is more data available,
-     *         false otherwise.
+     /**
+     * Metodo para verificar se existe mais dados para ler
+     * @return true se há mais dados para ler
+     *         false caso contrario.
      */
     public boolean hasMoreEntries()
     {
@@ -108,11 +103,11 @@ public class LogfileReader
     }
     
     /**
-     * Analyze the next line from the log file and
-     * make it available via a LogEntry object.
+     * Verifica se há próxima lina do arquivo
+     * e se existe retorna um objeto LogEntry.
      * 
-     * @return A LogEntry containing the data from the
-     *         next log line.
+     * @return Um LogEntry contendo os dados da 
+     *         proxima linha de log.
      */
     
     public LogEntry nextEntry()
@@ -140,7 +135,7 @@ public class LogfileReader
     }
 
     /**
-     * Print the data.
+     * Imprime o dado.
      */    
     public void printData()
     {

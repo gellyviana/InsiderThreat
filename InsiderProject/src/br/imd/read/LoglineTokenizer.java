@@ -39,7 +39,7 @@ public class LoglineTokenizer {
 			throw e;
 		}
 		finally{
-			//Esse não é a maneira de fechar???
+			//Fecha a leitura
 			tokenizer.close();
 		}
 	}

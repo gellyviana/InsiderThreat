@@ -1,25 +1,38 @@
 package br.imd.tree;
 
-import br.imd.read.GenerateObject;
+import java.util.ArrayList;
 
+import br.imd.tree.Value;
 
 public class No {
-	/**private GenerateObject object;
-	private No[] pt;
+		
+	private Value value;
+	private ArrayList<Value> children;
 
-
-	public No() {}
-	
-    public No(GenerateObject object) {
-        
+    public No(Value value, ArrayList<Value> children) {
+    	
+    	this.value = value;
+    	this.children = children;  
+    }
+    
+    public Value consultChildren(Value value){
+        	
+    	for(Value v: children){
+    		if(value == v){
+    			return value;
+    		}
+    	}
+    	return children.get(children.indexOf(value));
+    	
     }
 
-    /**public Aluno getAluno() {
-        return aluno;
+    public Value getAluno() {
+        return value;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    /**public void setChildren(Value value) {
+        if (value.)
+    	this.aluno = aluno;
     }
 
 	public No getLeft() {

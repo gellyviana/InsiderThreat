@@ -17,10 +17,10 @@ public class Tree {
 	        this.root = root;
 	}
 	
-	/**
-	public void insereAluno(int matricula, String nome) {
-        Aluno aluno = new Aluno(matricula, nome);
-        No no = new No(aluno);
+	
+	/**public void insertValue(int matricula, String nome) {
+        Value valor = new Value(matricula, nome);
+        No no = new No();
         inserir(no);
     }
 

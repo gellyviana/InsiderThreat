@@ -1,21 +1,24 @@
 package br.imd.read;
 
-import java.util.Date;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class Activity{
+public abstract class  Activity{
 	private String id;
-	private Date date;
-	private Date time;
+	private LocalDate date;
+	private LocalTime time;
 	private String domain;
 	private String user;
 	private String equipament;
 	
+	public Activity(){}
+	
 	public Activity(String[] activityLine){
 		this.id = activityLine[0];
+		this.equipament = activityLine[3];
 		converteDate(activityLine[1]);
 		separete(activityLine[2]);
 	}
@@ -28,27 +31,25 @@ public class Activity{
 	
 	public void converteDate(String field){
 		String[] dateSepareted = field.split(" ");
-		System.out.println(dateSepareted[0]);
-		System.out.println(dateSepareted[1]);
-		
+				
 		DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		LocalDate date = LocalDate.parse(dateSepareted[0],d);
-		System.out.println("A data e: " + date);
-		
+		LocalDate localDate = LocalDate.parse(dateSepareted[0],d);
+		this.date = localDate;
+				
 		DateTimeFormatter t = DateTimeFormatter.ofPattern("HH:mm:ss");
-		LocalTime time = LocalTime.parse(dateSepareted[1],t);
-		System.out.println("A hora e: " + time);
+		LocalTime localTime = LocalTime.parse(dateSepareted[1],t);
+		this.time = localTime;
 	}
-		
+	
 	public String getId() {
 		return id;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public Date getTime() {
+	public LocalTime getTime() {
 		return time;
 	}
 
@@ -63,6 +64,7 @@ public class Activity{
 	public String getEquipament(){
 		return equipament;
 	}
+	
 }
 
 

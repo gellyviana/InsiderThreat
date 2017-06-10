@@ -24,8 +24,8 @@ public class LogEntry implements Comparable<LogEntry>{
 	public LogEntry() {}
 	
 	/**
-	 * Decomponhe a linha de log em campos individuais
-	 * são disponíveis
+	 * Construtor que decomponhe a linha de log em campos
+	 * individuais colocando em um array o conteudo dos arquivos csv
 	 * @param logline Uma simple linha do log.
 	 */
 	public LogEntry(String logline){
@@ -135,5 +135,9 @@ public class LogEntry implements Comparable<LogEntry>{
       }
       return 0;
    }
+    
+    public String toString(){
+    	return this.getField1()+this.getField2()+this.getField3()+this.getField4()+this.getField5();
+    }
    
 }
