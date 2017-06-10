@@ -17,49 +17,70 @@ public class Tree {
 	        this.root = root;
 	}
 	
+	//todos esses metodos tem que vim do mesmo usuario
+	// esse metodo deve analizar a data para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
+	public void dateAnalizer(){
+		
+	}
 	
-	/**public void insertValue(int matricula, String nome) {
-        Value valor = new Value(matricula, nome);
+	// esse metodo deve analizar a equipament para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
+	public void equipamentAnalizer(){
+		
+	}
+	
+	// esse metodo deve analizar a activity para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
+	public void activityanalizer(){
+		
+	}
+	
+	// esse metodo deve analizar a data para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
+	public void existUrl(){
+		
+	}
+	
+	/**
+	public void insertValue(Value value) {
+        Value valor = new Value(value);
         No no = new No();
-        inserir(no);
+       inserir(no);
     }
 
 	private void inserir(No no) {
 		if(this.root == null){
 		   this.root = no;
-		}
-		else {
-			if (no.getAluno().getMatricula() > this.root.getAluno().getMatricula()){
-				if (this.root.getRight() == null){
-					this.root.setRight(no);
-				}
-				this.root.setLeft(no);
-			}
-			else if (no.getAluno().getMatricula() < this.root.getAluno().getMatricula()){
-				if (this.root.getLeft() == null){
-					this.root.setLeft(no);
-				}
-				this.root.setRight(no);
+		}else {
+			if (buscar(no.getValue())){
+				no.setHistogram(1);
+			}else{
+				no.setChildren(no.getValue());
 			}
 		}
-		
 	}
+				//if (this.root.getRight() == null){
+					//this.root.setRight(no);
+				//}
+				//this.root.setLeft(no);
+			//}
+			//else if (no.getAluno().getMatricula() < this.root.getAluno().getMatricula()){
+				//if (this.root.getLeft() == null){
+					//this.root.setLeft(no);
+				//}
+				//this.root.setRight(no);
+			//}
+		
 	
-	public Aluno buscar(int matricula, No root){
+	public Value buscar(Value value, No root){
 		if (root == null){
 			return null;
 		}
-		if (getRoot().getAluno().getMatricula() == matricula){
-			return getRoot().getAluno();
-		}
-		if (getRoot().getAluno().getMatricula() > matricula){
-			return buscar(matricula, root.getLeft());
+		if (getRoot().getValue() == value){
+			return getRoot().getValue();
 		}else {
-			return buscar(matricula, root.getRight());
+			return buscar(value, root.getChildren());
 		}
 	}
 	
-	public void percorrerInOrdem(No root){
+	/**public void percorrerInOrdem(No root){
 		if(root != null){
 			if(root.getLeft() != null){
 				percorrerInOrdem(root.getLeft());

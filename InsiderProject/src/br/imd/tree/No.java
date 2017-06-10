@@ -8,29 +8,47 @@ public class No {
 		
 	private Value value;
 	private ArrayList<Value> children;
+	private int[] histogram;
 
-    public No(Value value, ArrayList<Value> children) {
+	public No() {}
+	
+	public No(Value value, ArrayList<Value> children) {
     	
     	this.value = value;
-    	this.children = children;  
+    	this.children = new ArrayList<Value>(); 
+    	this.histogram = new int[24];
     }
     
-    public Value consultChildren(Value value){
+	public Value getValue(){
+		return this.value;
+	}
+	
+	 public void setValue() {
+	        this.value = value;
+	 }
+
+    public boolean consultChildren(Value value){
         	
     	for(Value v: children){
     		if(value == v){
-    			return value;
-    		}
-    	}
-    	return children.get(children.indexOf(value));
-    	
+    			return true;
+    		}else
+    			return false;
+    		} 
+    	return false;
     }
-
-    public Value getAluno() {
-        return value;
+    
+    public void insertChildren(Value value){
+    	/*if(consultChildren(value)){
+    		//setHistogram(value.get)// precisa colocar a posiçao que vai ser incrementada
+    	}else{
+    		// precisa inserir o no (mas tem que saber que tipo, para saber se esta no nivel que pode acrescentar
+    	}*/
     }
+ 
+    //return children.get(children.indexOf(value));
 
-    /**public void setChildren(Value value) {
+    /**public void setChildren(Value value) { // este metodo deve ser o metodo que vai adicionar o filho no arrayList
         if (value.)
     	this.aluno = aluno;
     }
@@ -50,4 +68,11 @@ public class No {
 	public void setRight(No right) {
 		this.right = right;
 	}*/
+    public void setHistogram(int i){
+    	histogram[i]++;
+    }
+    
+    public int[] showHistrogram(){
+    	return histogram;
+    }
 }
