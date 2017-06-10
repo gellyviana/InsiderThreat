@@ -1,5 +1,6 @@
 package br.imd.view;
 
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Desktop;
@@ -20,6 +21,9 @@ import javax.swing.JTextArea;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
+import br.imd.exception.NullWayException;
+
+
 /**
  * Classe que gera a primeira tela para o usuário poder visualizar e manusear o
  * sistema.
@@ -31,6 +35,7 @@ import javax.swing.event.MenuListener;
  */
 public class PrimeView extends JFrame implements ActionListener {
 
+	//
 	JDesktopPane dtp;
 	JMenuBar mnbar;
 	JMenu fileLogs;
@@ -43,7 +48,7 @@ public class PrimeView extends JFrame implements ActionListener {
 	JMenuItem mHttpc;
 	JMenuItem mLogon;
 
-	JTextArea textArea;
+	//JTextArea textArea;
 	JButton save;
 
 	public PrimeView() {
@@ -113,44 +118,63 @@ public class PrimeView extends JFrame implements ActionListener {
  * Classe responsável em projetar os possíveis caminhos para buscar dos 
  * arquivos de Logs.
  */
-	public void salveFile() {
+	public File salveFile() throws NullWayException{
 		JFileChooser fileChooser = new JFileChooser();
-		int retval = fileChooser.showSaveDialog(save);
-		if (retval == JFileChooser.APPROVE_OPTION) {
-			File file = fileChooser.getSelectedFile();
-			System.out.println("Aqui" + file);
-			if (file == null) {
-				return;
+		int value = fileChooser.showSaveDialog(save);
+		File file, way = null;
+		
+		if(value == JFileChooser.APPROVE_OPTION) {
+			file = fileChooser.getSelectedFile();
+			way = new File("file:" + file);
+			System.out.println(way);
+			if(way == null){
+				throw new NullWayException("Caminho não encontrado");
 			}
-			if (!file.getName().toLowerCase().endsWith(".txt")) {
-				file = new File(file.getParentFile(), file.getName() + ".txt");
-			}
-			try {
-				textArea.write(new OutputStreamWriter(new FileOutputStream(file), "utf-8"));
-				Desktop.getDesktop().open(file);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			return way;
 		}
+		return way;			
 	}
 
 	
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getActionCommand().equals(mDevice)) {
-			salveFile();
+			try {
+				  salveFile();
+			} catch (NullWayException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else if (e.getActionCommand().equals(mLdap)) {
-			salveFile();
+			try {
+				salveFile();
+			} catch (NullWayException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else if (e.getActionCommand().equals(mHttps)) {
-			salveFile();
+			try {
+				salveFile();
+			} catch (NullWayException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else if (e.getActionCommand().equals(mHttpc)) {
-			salveFile();
+			try {
+				salveFile();
+			} catch (NullWayException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} else {
-			salveFile();
+			try {
+				salveFile();
+			} catch (NullWayException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 			
 	}
-
-
 
 }

@@ -26,6 +26,7 @@ public class GenerateObject {
 		User user = new User(userLine);
 		//no.add(user);
 		for(int i=0; i< userLine.length; i++){
+				//System.out.println(userLine[0]+ userLine[1]+ userLine[2]+ userLine[3]+userLine[4]);
 				System.out.println(user.getName());
 				System.out.println(user.getUserId());
 				System.out.println(user.getEmail());

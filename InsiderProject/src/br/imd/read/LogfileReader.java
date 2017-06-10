@@ -71,11 +71,11 @@ public class LogfileReader
             dataRead = true;
         }
         catch(FileNotFoundException e) {
-            System.out.println("Problem encountered: " + e);
+            System.out.println("Problema encontrado: " + e);
             dataRead = false;
         }
         catch(URISyntaxException e) {
-            System.out.println("Problem encountered: " + e);
+            System.out.println("Problema encontrado: " + e);
             dataRead = false;
         } 
         catch(MalformedURLException e){
@@ -84,8 +84,7 @@ public class LogfileReader
         }
         // If we couldn't read the log file, use simulated data.
         if(!dataRead) {
-            System.out.println("Failed to read the data file: " +
-                               filename);
+            System.out.println("Falha na leitura do arquivo: " + filename);
         }
         // Ordena a coleção em ordem crescente.
         Collections.sort(entries);
