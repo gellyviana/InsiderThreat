@@ -10,8 +10,26 @@ public class Value {
 	public Value(){
 	
 		this.user = null;
+		this.dateGroup = null;
+		this.equipament = null;
+		this.activity = null;
+		
+	}
+		
+	
+	public User getUser(){
+		return this.user;
 	}
 	
+	public DateGroup getDataGroup(){
+		return this.dateGroup;
+	}
 	
+	public Equipament getEquipament(){
+		return this.equipament;
+	}
 
+	public Activity getActivity(){
+		return this.activity;
+	}
 }

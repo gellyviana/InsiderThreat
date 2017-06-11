@@ -1,24 +1,29 @@
 package br.imd.read;
 
-import br.imd.tree.No;
 import java.util.ArrayList;
 
 public class GenerateObject {
 	
 	private User user;
 	private Activity activity;
-	private ArrayList<No> no;
+	private ArrayList<Activity> activityList;
+	private static ArrayList<User> userList;
 		
 	public GenerateObject() {}
 	
 	public GenerateObject(String[] line){
 		this.user = null;
 		this.activity = null;
+		userList = new ArrayList<User>();
+		activityList = new ArrayList<Activity>();
 		if ((line[0].contains("{")) || (line[0].contains("}"))){
 			activity = createActivity(line);
+			activityList.add(activity);
 		}else{
 			user = createUser(line);
+			userList.add(user);
 		}
+		printObject();
 	}
 	
 	
@@ -81,7 +86,6 @@ public class GenerateObject {
 				return http;
 			}
 		}
-		
 	}
 
 	public User getUser() {
@@ -92,5 +96,17 @@ public class GenerateObject {
 		return activity;
 	}
 	
-
+	public static ArrayList<User> getUserList(){
+		return userList;
+	}
+	
+	public ArrayList<Activity> getActivityList(){
+		return activityList;
+	}
+	
+	public void printObject(){
+		for(int i = 0; i < userList.size(); i++){
+			System.out.println(userList.get(i).getUserId());
+		}
+	}
 }

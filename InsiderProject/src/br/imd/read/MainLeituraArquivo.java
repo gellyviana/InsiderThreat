@@ -10,6 +10,8 @@ public class MainLeituraArquivo {
 
 		LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
 		
+		
+		
 		//logfileReaderDevice.printData();
 		
 		//Maneger maneger1 = new Maneger("logon-sumarizado.csv");

@@ -57,12 +57,13 @@ public class No {
     //return children.get(children.indexOf(value));
 
     /**public void setChildren(Value value) { // este metodo deve ser o metodo que vai adicionar o filho no arrayList
-        if (value.)
+        if (value.consultChildren(value){
+        
     	this.aluno = aluno;
     }
 
-	public No getLeft() {
-		return left;
+	public No getChildren(int i) {
+		return children.get(i);
 	}
 
 	public void setLeft(No left) {
