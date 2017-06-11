@@ -13,7 +13,6 @@ public class No {
 	public No() {}
 	
 	public No(Value value, ArrayList<Value> children) {
-    	
     	this.value = value;
     	this.children = new ArrayList<Value>(); 
     	this.histogram = new int[24];
@@ -23,7 +22,7 @@ public class No {
 		return this.value;
 	}
 	
-	 public void setValue() {
+	 public void setValue(Value value) {
 	        this.value = value;
 	 }
 
@@ -39,12 +38,21 @@ public class No {
     }
     
     public void insertChildren(Value value){
-    	/*if(consultChildren(value)){
-    		//setHistogram(value.get)// precisa colocar a posiçao que vai ser incrementada
+    	if(this.consultChildren(value)){
+    		this.setHistogram(1);
     	}else{
-    		// precisa inserir o no (mas tem que saber que tipo, para saber se esta no nivel que pode acrescentar
-    	}*/
+    		children.add(value);
+    		this.setHistogram(1);
+    	}
     }
+    /*public void insertChildren(Value value){
+    	if(consultChildren(value)){
+    		this.setHistogram(0);//setHistogram(value.get)// precisa colocar a posiçao que vai ser incrementada
+    	}else{
+    		//precisa inserir o no (mas tem que saber que tipo, para saber se esta no nivel que pode acrescentar
+    		this.insertChildren(this.getValue());
+    	}
+    }*/
  
     //return children.get(children.indexOf(value));
 

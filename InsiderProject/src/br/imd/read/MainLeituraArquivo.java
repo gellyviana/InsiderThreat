@@ -12,19 +12,19 @@ public class MainLeituraArquivo {
 		
 		//logfileReaderDevice.printData();
 		
-		Maneger maneger1 = new Maneger("logon-sumarizado.csv");
+		//Maneger maneger1 = new Maneger("logon-sumarizado.csv");
 
-		LogfileReader logfileReaderDevice1 = new LogfileReader("logon-sumarizado.csv");
+		//LogfileReader logfileReaderDevice1 = new LogfileReader("logon-sumarizado.csv");
 		
 		//logfileReaderDevice1.printData();
 
-		Maneger maneger2 = new Maneger("device.csv");
+		//Maneger maneger2 = new Maneger("device.csv");
 
-		LogfileReader logfileReaderDevice2 = new LogfileReader("device.csv");
+		//LogfileReader logfileReaderDevice2 = new LogfileReader("device.csv");
 		
-		Maneger maneger3 = new Maneger("http-sumarizado.csv");
+		//Maneger maneger3 = new Maneger("http-sumarizado.csv");
 
-		LogfileReader logfileReaderDevice3 = new LogfileReader("http-sumarizado.csv");
+		//LogfileReader logfileReaderDevice3 = new LogfileReader("http-sumarizado.csv");
 
 		//logfileReaderDevice2.printData();
 		
