@@ -9,6 +9,10 @@ public class Tree {
 		this.root = null;
 	}
 	
+	public Tree(No root){
+		this.root = root;
+	}
+	
 	public No getRoot() {
 	        return root;
 	 }

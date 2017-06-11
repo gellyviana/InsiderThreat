@@ -1,5 +1,9 @@
 package br.imd.tree;
 
+import java.util.ArrayList;
+
+import br.imd.read.GenerateObject;
+
 public class Value {
 	
 	private User user;
@@ -7,16 +11,38 @@ public class Value {
 	private Equipament equipament;
 	private Activity activity;
 	
-	public Value(){
+	public Value(){}
 	
-		this.user = null;
-		this.dateGroup = null;
-		this.equipament = null;
-		this.activity = null;
+	public Value(ArrayList<GenerateObject> array){
+		//if (array) se o array for do tipo usuario e para pegar um usuario e gerar User
+		//else pegar as informações e gerar tipo dateGroup, equipament, activity
 		
 	}
-		
+	public Value(User user){
 	
+		this.user = user;
+	
+	}
+	
+	public Value(DateGroup dateGroup){
+		
+		this.dateGroup = dateGroup;
+	
+	}
+	
+	public Value(Equipament equipament){
+		
+		this.equipament = equipament;
+	
+	}
+	
+	public Value(Activity activity){
+		
+		
+		this.activity = activity;
+	
+	}
+		
 	public User getUser(){
 		return this.user;
 	}

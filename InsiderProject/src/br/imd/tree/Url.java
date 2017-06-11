@@ -1,10 +1,11 @@
 package br.imd.tree;
 
-public class Url {
+public class Url extends Value{
 	
 	private String url;
 	
 	public Url(String url){
+		super();
 		this.url = url;
 	}
 	

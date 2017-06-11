@@ -9,6 +9,7 @@ public class No {
 	private Value value;
 	private ArrayList<Value> children;
 	private int[] histogram;
+	private int level;
 
 	public No() {}
 	
@@ -39,26 +40,22 @@ public class No {
     
     public void insertChildren(Value value){
     	if(this.consultChildren(value)){
-    		this.setHistogram(1);
+    		//pega a hora da atividade para passar como parametro no setHistogram 
+    		setHistogram(1);
     	}else{
     		children.add(value);
-    		this.setHistogram(1);
+    		//precisa da hora da atividade para setHistogram
+    		setHistogram(1);
     	}
     }
-    /*public void insertChildren(Value value){
-    	if(consultChildren(value)){
-    		this.setHistogram(0);//setHistogram(value.get)// precisa colocar a posiçao que vai ser incrementada
-    	}else{
-    		//precisa inserir o no (mas tem que saber que tipo, para saber se esta no nivel que pode acrescentar
-    		this.insertChildren(this.getValue());
-    	}
-    }*/
- 
+     
     //return children.get(children.indexOf(value));
 
     /**public void setChildren(Value value) { // este metodo deve ser o metodo que vai adicionar o filho no arrayList
-        if (value.consultChildren(value){
-        
+        if ( !value.consultChildren(value)){
+        	insertChildren(value);
+        	}else{
+        		setHistogram(1);
     	this.aluno = aluno;
     }
 
@@ -77,7 +74,11 @@ public class No {
 	public void setRight(No right) {
 		this.right = right;
 	}*/
-    public void setHistogram(int i){
+    
+    public void defineTimeHistogram(Value value){
+    	
+    }
+    public void setHistogram(int i){	
     	histogram[i]++;
     }
     
