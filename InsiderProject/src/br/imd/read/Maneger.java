@@ -11,7 +11,7 @@ import java.util.Iterator;
  *
  */
 public class Maneger {
-	
+	User user;
 	private String file;
 	private static ArrayList<GenerateObject> userGuide;
 	
@@ -32,6 +32,10 @@ public class Maneger {
 			if ( !(s1[0].contains("{")) || (s1[0].contains("}"))){
 				userGuide.add(object);
 			}
+			//if(object.equals(user)){
+			//	System.out.println(object);
+			//	userGuide.add(object);
+			//}
 			//for (int i = 0; i < s1.length; i++){
 				//System.out.println(s1[i]);
 			//}
@@ -39,7 +43,7 @@ public class Maneger {
 		
 		//estou tentando ver se esta sendo criado o arrayList, mas nao estou conseguindo
 		for(int i = 0; i < userGuide.size(); i++){
-			System.out.println(userGuide.get(i).toString());
+			System.out.println(userGuide.get(i).getUser());
 		}
 		/**Iterator it = userGuide.iterator();
         while (it.hasNext()) {
