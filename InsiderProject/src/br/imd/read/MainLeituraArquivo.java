@@ -1,5 +1,7 @@
 package br.imd.read;
 
+import br.imd.tree.TreeCreate;
+
 import br.imd.view.PrimeView;
 
 public class MainLeituraArquivo {
@@ -8,9 +10,9 @@ public class MainLeituraArquivo {
 
 		Maneger maneger = new Maneger("ldap.csv");
 
-		LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
+	//	LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
 		
-		
+		//TreeCreate tree = new TreeCreat();
 		
 		//logfileReaderDevice.printData();
 		

@@ -17,6 +17,7 @@ public class No {
     	this.value = value;
     	this.children = new ArrayList<Value>(); 
     	this.histogram = new int[24];
+    	this.level = 0;
     }
     
 	public Value getValue(){

@@ -22,6 +22,7 @@ public class LogfileReader
 {
     // The data format in the log file.
     private String format;
+    
     // Where the file's contents are stored in the form
     // of LogEntry objects.
     private ArrayList<LogEntry> entries;
@@ -40,9 +41,9 @@ public class LogfileReader
      * para ser lido, e coloca as linhas em array de String. 
      * @param filename The file of log data.
      */
-    public LogfileReader(String filename)
-    {
-        // O formato da linha do arquivo.
+    public LogfileReader(String filename){
+       
+    	// O formato da linha do arquivo.
         format = "Field1 Field2 Field3 Field4 Field5";
         // Onde será armazenado os campos.
         entries = new ArrayList<LogEntry>();
@@ -62,7 +63,7 @@ public class LogfileReader
             Scanner logfile = new Scanner(new File(fileURL.toURI()));
             // Read the data lines until the end of file.
             while(logfile.hasNextLine()) {
-                String logline = logfile.nextLine();
+                logline = logfile.nextLine();
                 // Break up the line and add it to the list of entries.
                 LogEntry entry = new LogEntry(logline);
                 entries.add(entry);
@@ -91,7 +92,11 @@ public class LogfileReader
         reset();
     }
     
-     /**
+     public String getLogline() {
+		return logline;
+	}
+
+	/**
      * Metodo para verificar se existe mais dados para ler
      * @return true se há mais dados para ler
      *         false caso contrario.
@@ -143,7 +148,7 @@ public class LogfileReader
         }
     }
     
-    public ArrayList<LogEntry> getLogEntry(){
+    public ArrayList<LogEntry> getEntries(){
     	return entries;
     }
 }

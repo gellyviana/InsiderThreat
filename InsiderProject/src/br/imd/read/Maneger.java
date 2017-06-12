@@ -13,6 +13,9 @@ import java.util.Iterator;
 public class Maneger {
 	
 	
+	private GenerateObjectUser objectUser;
+	private GenerateObjectActivity objectActivity;
+	
 	public Maneger(String filename){
 		
 		createObject(filename);
@@ -21,13 +24,43 @@ public class Maneger {
 	public void createObject(String filename){
 		LogfileReader fileReader = new LogfileReader(filename);
 		LogEntry aux = new LogEntry();
-		while (fileReader.hasMoreEntries()){
-			aux = fileReader.nextEntry();
-			String[] s1 = aux.getFields();
-			GenerateObject object = new GenerateObject(s1);
+		aux =fileReader.nextEntry();
+		if(aux.getField1().equals("id")){
+			while (fileReader.hasMoreEntries()){
+				aux = fileReader.nextEntry();
+				String[] s1 = aux.getFields();
+				objectActivity = new GenerateObjectActivity(s1);
 			//for (int i = 0; i < s1.length; i++){
 				//System.out.println(s1[i]);
 			//}
-		}        
+			}
+		} else{
+			while (fileReader.hasMoreEntries()){
+				aux = fileReader.nextEntry();
+				String[] s1 = aux.getFields();
+				objectUser = new GenerateObjectUser(s1);
+				//for (int i = 0; i < s1.length; i++){
+					//System.out.println(s1[i]);
+				//}
+			}
+		}
 	}
+
+	public GenerateObjectUser getObjectUser() {
+		return objectUser;
+	}
+
+	public void setObjectUser(GenerateObjectUser objectUser) {
+		this.objectUser = objectUser;
+	}
+
+	public GenerateObjectActivity getObjectActivity() {
+		return objectActivity;
+	}
+
+	public void setObjectActivity(GenerateObjectActivity objectActivity) {
+		this.objectActivity = objectActivity;
+	}
+
+	
 }
