@@ -11,7 +11,7 @@ public class GenerateObjectUser extends GenerateObject{
 		
 		userList = new ArrayList<User>();
 		setAux(line);
-		
+		captureUser();
 		//printObject();
 	}
 	
@@ -22,6 +22,12 @@ public class GenerateObjectUser extends GenerateObject{
 	
 	public User createUser(String[] userLine){
 		User user = new User(userLine);
+		return user;
+	}
+	
+	/**
+	public User createUser(String[] userLine){
+		User user = new User(userLine);
 		//no.add(user);
 		/**for(int i=0; i< userLine.length; i++){
 				System.out.println(user.getName());
@@ -29,12 +35,12 @@ public class GenerateObjectUser extends GenerateObject{
 				System.out.println(user.getEmail());
 				System.out.println(user.getDomain());
 				System.out.println(user.getRole());
-			}*/
+			}
 		return user;
 		
 		//return new User(userLine);
 		
-	}
+	}*/
 	
 	public User getUser() {
 		return user;

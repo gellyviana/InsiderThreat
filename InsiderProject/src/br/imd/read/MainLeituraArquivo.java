@@ -1,5 +1,7 @@
 package br.imd.read;
 
+import java.util.ArrayList;
+
 import br.imd.tree.TreeCreate;
 
 import br.imd.view.PrimeView;
@@ -9,10 +11,6 @@ public class MainLeituraArquivo {
 	public static void main(String[] args) {
 
 		Maneger maneger = new Maneger("ldap.csv");
-
-	//	LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
-		
-		//TreeCreate tree = new TreeCreat();
 		
 		//logfileReaderDevice.printData();
 		
@@ -33,6 +31,8 @@ public class MainLeituraArquivo {
 		//logfileReaderDevice2.printData();
 		
 		// logfileReaderDevice3.LogfileReader("http-sumarizado");
+		
+//		LogfileReader logfileReaderDevice = new LogfileReader("ldap.csv");
 		//PrimeView v = new PrimeView();
 		//v.start();
 		//v.setVisible(true);

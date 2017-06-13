@@ -6,15 +6,22 @@ import br.imd.read.GenerateObjectUser;
 
 public class TreeCreate {
 	
-	private ArrayList<User> forest;
+	//private ArrayList<User> forest;
+	private GenerateObjectUser userList;
+	//private GenerateObjectUser user;
 	
-	public TreeCreate(ArrayList<User> userList){
+	//public TreeCreate(){
+		
+	//}
+	
+	
+	public TreeCreate(GenerateObjectUser userList){
 		
 		
-		forest = new ArrayList<User>(userList);
+		//forest = new ArrayList<User>(userList);
 		
-		for(int i = 0; i < forest.getUserList().size(); i++){
-			System.out.println(forest.getUserList().get(i).getUserId());
+		for(int i = 0; i < userList.getUserList().size(); i++){
+			userList.printObject();
 		}
 		/*for(int i = 0; i < forest.size(); i++){
 			ArrayList<Value> children = new ArrayList<Value>();

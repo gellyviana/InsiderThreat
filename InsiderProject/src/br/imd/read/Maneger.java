@@ -3,6 +3,8 @@ package br.imd.read;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import br.imd.tree.TreeCreate;
+
 /**
  * Classe criada para conduzir uma linha de um arquivo
  * ao processo de criação de objeto
@@ -15,6 +17,8 @@ public class Maneger {
 	
 	private GenerateObjectUser objectUser;
 	private GenerateObjectActivity objectActivity;
+	private TreeCreate tree;
+	private GenerateObject help;
 	
 	public Maneger(String filename){
 		
@@ -30,6 +34,7 @@ public class Maneger {
 				aux = fileReader.nextEntry();
 				String[] s1 = aux.getFields();
 				objectActivity = new GenerateObjectActivity(s1);
+				
 			//for (int i = 0; i < s1.length; i++){
 				//System.out.println(s1[i]);
 			//}
@@ -43,8 +48,20 @@ public class Maneger {
 					//System.out.println(s1[i]);
 				//}
 			}
+			
+			//TreeCreate tree = new TreeCreate(objectUser.createUser(help.getAux()));
 		}
 	}
+	
+	GenerateObject aux;
+	
+	//GenerateObjectUser user = maneger.getObjectUser();
+	
+	//ArrayList<User> user = maneger.getObjectUser().getUserList();
+					
+	//TreeCreate tree = new TreeCreate(user);
+	
+	//System.out.println(tree.toString());
 
 	public GenerateObjectUser getObjectUser() {
 		return objectUser;
