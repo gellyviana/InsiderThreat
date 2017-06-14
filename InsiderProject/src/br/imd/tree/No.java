@@ -28,9 +28,9 @@ public class No {
 	        this.value = value;
 	 }
 
-    public boolean consultChildren(Value value){
+    public boolean consultChildren(No value){
         	
-    	for(Value v: children){
+    	for(No v: children){
     		if(value == v){
     			return true;
     		}else
@@ -39,7 +39,7 @@ public class No {
     	return false;
     }
     
-    public void insertChildren(Value value){
+    public void insertChildren(No value){
     	if(this.consultChildren(value)){
     		//pega a hora da atividade para passar como parametro no setHistogram 
     		setHistogram(1);

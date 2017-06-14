@@ -6,11 +6,7 @@ import br.imd.read.GenerateObjectUser;
 
 public class TreeCreate {
 	
-	public TreeCreate(){
-		
-		
-		
-	}
+	public TreeCreate(){}
 	
 	
 	//public TreeCreate(GenerateObjectUser userList){
