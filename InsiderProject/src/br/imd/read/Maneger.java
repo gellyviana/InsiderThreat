@@ -13,16 +13,16 @@ import br.imd.tree.TreeCreate;
  *
  */
 public class Maneger {
+
+	private ArrayList<User> userList;
+	private ArrayList<Activity> activityList;
 	
-	
-	private GenerateObjectUser objectUser;
-	private GenerateObjectActivity objectActivity;
 	private TreeCreate tree;
 	private GenerateObject help;
 	
-	public Maneger(String filename){
-		
-		createObject(filename);
+	public Maneger(){
+		userList = new ArrayList<User>();
+		activityList = new ArrayList<Activity>();
 	}
 		
 	public void createObject(String filename){
@@ -33,51 +33,42 @@ public class Maneger {
 			while (fileReader.hasMoreEntries()){
 				aux = fileReader.nextEntry();
 				String[] s1 = aux.getFields();
-				objectActivity = new GenerateObjectActivity(s1);
-				
-			//for (int i = 0; i < s1.length; i++){
-				//System.out.println(s1[i]);
-			//}
+				Activity activity = GenerateObjectActivity.createActivity(s1);
+				activityList.add(activity);
 			}
 		} else{
 			while (fileReader.hasMoreEntries()){
 				aux = fileReader.nextEntry();
 				String[] s1 = aux.getFields();
-				objectUser = new GenerateObjectUser(s1);
-				//for (int i = 0; i < s1.length; i++){
-					//System.out.println(s1[i]);
-				//}
+				User user = GenerateObjectUser.createUser(s1);
+				userList.add(user);
 			}
 			
-			//TreeCreate tree = new TreeCreate(objectUser.createUser(help.getAux()));
 		}
+		//for (int i = 0; i < userList.size(); i++){
+			//System.out.println(getUserList().get(i).toString());
+		//}
 	}
 	
-	GenerateObject aux;
+	public void readUser(String filename){
+		createObject(filename);	
+	}
 	
-	//GenerateObjectUser user = maneger.getObjectUser();
+	public void readActivity(String filename){
+		createObject(filename);
+	}
 	
-	//ArrayList<User> user = maneger.getObjectUser().getUserList();
-					
-	//TreeCreate tree = new TreeCreate(user);
+	/**
+	 * @author adriana
+	 * @return /index /tamanho
+	 * Função que retorna tamanho do ArrayList Usuários
+	 */
+	public int getIndex(){
+			return userList.size();
+	}
 	
-	//System.out.println(tree.toString());
-
-	public GenerateObjectUser getObjectUser() {
-		return objectUser;
+	public ArrayList<User> getUserList(){
+			return userList;
 	}
 
-	public void setObjectUser(GenerateObjectUser objectUser) {
-		this.objectUser = objectUser;
-	}
-
-	public GenerateObjectActivity getObjectActivity() {
-		return objectActivity;
-	}
-
-	public void setObjectActivity(GenerateObjectActivity objectActivity) {
-		this.objectActivity = objectActivity;
-	}
-
-	
 }

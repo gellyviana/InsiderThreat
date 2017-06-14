@@ -6,20 +6,17 @@ import br.imd.read.GenerateObjectUser;
 
 public class TreeCreate {
 	
-	//private ArrayList<User> forest;
-	private GenerateObjectUser userList;
-	//private GenerateObjectUser user;
-	
-	//public TreeCreate(){
+	public TreeCreate(){
 		
-	//}
+		
+		
+	}
 	
 	
-	public TreeCreate(GenerateObjectUser userList){
+	//public TreeCreate(GenerateObjectUser userList){
 		
 		
 		//forest = new ArrayList<User>(userList);
-		
 		for(int i = 0; i < userList.getUserList().size(); i++){
 			userList.printObject();
 		}

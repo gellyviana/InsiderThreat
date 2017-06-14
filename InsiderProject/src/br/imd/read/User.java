@@ -1,5 +1,6 @@
 package br.imd.read;
 
+import br.imd.tree.Tree;
 
 public class User {
 	
@@ -8,13 +9,15 @@ public class User {
 	private String email;
 	private String domain;
 	private String role;
+	private Tree root;
 	
 	public User(String[] userLine){
 		this.name = userLine[0];
 		this.userId = userLine[1];
-		this.email = userLine[2];
-		this.domain = userLine[3];
+		this.email = userLine[3];
+		this.domain = userLine[2];
 		this.role = userLine[4];
+		root = new Tree();
 	}
 	public String getName() {
 		return name;
@@ -37,6 +40,6 @@ public class User {
 	}
 
 	public String toString(){
-		return this.name + this.role;
+		return this.userId +" " + this.name + " " + this.email + " "+ this.domain + " "+ this.role;
 	}
 }

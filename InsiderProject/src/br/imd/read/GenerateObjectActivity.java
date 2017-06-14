@@ -1,24 +1,10 @@
 package br.imd.read;
 
-import java.util.ArrayList;
-
 public class GenerateObjectActivity extends GenerateObject{
-
-
-	private Activity activity;
-	private ArrayList<Activity> activityList;
 	
-	public GenerateObjectActivity(String[] line){
-		activityList = new ArrayList<Activity>();
-		setAux(line);
-	}
+	public GenerateObjectActivity(){}
 	
-	public void captureActivity(){
-		activity = createActivity(getAux());
-		activityList.add(activity);
-	}
-	
-	public Activity createActivity(String[] activityLine){
+	public static Activity createActivity(String[] activityLine){
 		if((activityLine[4].equals("Connect")) || (activityLine[4].equals("Disconnect"))){
 			Device device = new Device(activityLine);
 			/**for(int i=0; i< activityLine.length; i++){
@@ -61,16 +47,6 @@ public class GenerateObjectActivity extends GenerateObject{
 				return http;
 			}
 		}
-	}
-	
-	public Activity getActivity() {
-		return activity;
-	}
-	
-	
-	
-	public ArrayList<Activity> getActivityList(){
-		return activityList;
 	}
 	
 }

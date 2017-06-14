@@ -7,15 +7,15 @@ import br.imd.tree.Value;
 public class No {
 		
 	private Value value;
-	private ArrayList<Value> children;
+	private ArrayList<No> children;
 	private int[] histogram;
 	private int level;
 
 	public No() {}
 	
-	public No(Value value, ArrayList<Value> children) {
+	public No(Value value) {
     	this.value = value;
-    	this.children = new ArrayList<Value>(); 
+    	this.children = new ArrayList<No>(); 
     	this.histogram = new int[24];
     	this.level = 0;
     }
