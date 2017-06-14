@@ -1,8 +1,6 @@
 package br.imd.tree;
 
-import java.util.ArrayList;
-
-import br.imd.read.GenerateObject;
+import br.imd.factory.User;
 
 public class DateGroup extends Value{
 	

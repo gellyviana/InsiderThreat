@@ -1,10 +1,10 @@
-package br.imd.read;
+package br.imd.factory;
 
-public class Device extends Activity{
-	
+public class Http extends Activity{
+
 	private String action;
 	
-	public Device(String[] activityLine){
+	public Http(String[] activityLine){
 		super(activityLine);
 		this.action = activityLine[4];
 	}
@@ -14,9 +14,6 @@ public class Device extends Activity{
 	}
 	
 	public String toString(){
-		
 		return this.action;
-		//+ model.getUser() + model.getEquipament();
 	}
-
 }

@@ -4,8 +4,7 @@ package br.imd.tree;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
-import br.imd.read.Activity;
+import br.imd.factory.Activity;
 
 public class Equipament extends Value{
 	

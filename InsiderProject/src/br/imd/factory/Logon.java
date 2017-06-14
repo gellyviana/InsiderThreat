@@ -1,10 +1,10 @@
-package br.imd.read;
+package br.imd.factory;
 
-public class Http extends Activity{
+public class Logon extends Activity{
 
 	private String action;
 	
-	public Http(String[] activityLine){
+	public Logon(String[] activityLine){
 		super(activityLine);
 		this.action = activityLine[4];
 	}
@@ -14,6 +14,8 @@ public class Http extends Activity{
 	}
 	
 	public String toString(){
+		
 		return this.action;
 	}
+
 }

@@ -41,7 +41,8 @@ public class PrimeView extends JFrame implements ActionListener {
 	JMenu fileLogs;
 	JMenu fileRela;
 	JMenu exit;
-
+	
+	
 	JMenuItem mDevice;
 	JMenuItem mLdap;
 	JMenuItem mHttps;
@@ -140,11 +141,11 @@ public class PrimeView extends JFrame implements ActionListener {
 		
 		if (e.getActionCommand().equals(mDevice)) {
 			try {
-				  salveFile();
+				salveFile();
 			} catch (NullWayException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
+			}	
 		} else if (e.getActionCommand().equals(mLdap)) {
 			try {
 				salveFile();
@@ -175,6 +176,10 @@ public class PrimeView extends JFrame implements ActionListener {
 			}
 		}
 			
+	}
+
+	private void openTree() throws NullWayException {
+		FileTree ft = new FileTree(salveFile());
 	}
 
 }

@@ -8,7 +8,7 @@ public class MainLeituraArquivo {
 
 	public static void main(String[] args) {
 
-		Maneger maneger = new Maneger();
+		/*Maneger maneger = new Maneger();
 		
 		maneger.readUser("ldap.csv");
 		
@@ -16,11 +16,11 @@ public class MainLeituraArquivo {
 		
 		maneger.readActivity("logon-sumarizado.csv");
 		
-		maneger.readActivity("http-sumarizado.csv");
+		maneger.readActivity("http-sumarizado.csv");*/
 	
-		//PrimeView v = new PrimeView();
-		//v.start();
-		//v.setVisible(true);
+		PrimeView v = new PrimeView();
+		v.start();
+		v.setVisible(true);
 
 	}
 }

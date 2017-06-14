@@ -1,8 +1,10 @@
-package br.imd.read;
+package br.imd.factory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import br.imd.read.LogEntry;
+import br.imd.read.LogfileReader;
 import br.imd.tree.TreeCreate;
 
 /**

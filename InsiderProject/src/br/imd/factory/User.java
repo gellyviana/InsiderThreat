@@ -1,8 +1,8 @@
-package br.imd.read;
+package br.imd.factory;
 
 import br.imd.tree.Tree;
 
-public class User {
+public class User{
 	
 	private String name;
 	private String userId;

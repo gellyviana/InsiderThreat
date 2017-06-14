@@ -1,4 +1,4 @@
-package br.imd.read;
+package br.imd.factory;
 
 public class GenerateObjectUser extends GenerateObject{
 	

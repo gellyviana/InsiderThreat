@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import br.imd.read.GenerateObject;
+import br.imd.factory.GenerateObject;
+import br.imd.factory.User;
 
 public class Activity extends Value{
 	

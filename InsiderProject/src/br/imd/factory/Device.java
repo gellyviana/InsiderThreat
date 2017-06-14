@@ -1,10 +1,10 @@
-package br.imd.read;
+package br.imd.factory;
 
-public class Logon extends Activity{
-
+public class Device extends Activity{
+	
 	private String action;
 	
-	public Logon(String[] activityLine){
+	public Device(String[] activityLine){
 		super(activityLine);
 		this.action = activityLine[4];
 	}
@@ -16,6 +16,7 @@ public class Logon extends Activity{
 	public String toString(){
 		
 		return this.action;
+		//+ model.getUser() + model.getEquipament();
 	}
 
 }
