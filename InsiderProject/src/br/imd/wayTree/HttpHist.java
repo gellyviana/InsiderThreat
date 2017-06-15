@@ -1,4 +1,4 @@
-package WayTree;
+package br.imd.wayTree;
 
 import java.util.ArrayList;
 

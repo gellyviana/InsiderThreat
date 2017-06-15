@@ -1,4 +1,4 @@
-package WayTree;
+package br.imd.wayTree;
 
 import br.imd.factory.User;
 

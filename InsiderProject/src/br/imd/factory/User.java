@@ -9,6 +9,7 @@ public class User{
 	private String email;
 	private String domain;
 	private String role;
+	private String[] userLine;
 	private Tree root;
 	
 	public User(String[] userLine){
@@ -17,6 +18,7 @@ public class User{
 		this.email = userLine[3];
 		this.domain = userLine[2];
 		this.role = userLine[4];
+		this.userLine = userLine;
 		root = new Tree();
 	}
 	public String getName() {
@@ -38,8 +40,11 @@ public class User{
 	public String getRole() {
 		return role;
 	}
-
+	public String[] getUserLine(){
+		return this.userLine;
+	}
 	public String toString(){
 		return this.userId +" " + this.name + " " + this.email + " "+ this.domain + " "+ this.role;
 	}
+	
 }

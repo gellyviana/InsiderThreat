@@ -1,12 +1,15 @@
 package br.imd.tree;
 
+import java.util.ArrayList;
 
 public class Tree {
 	
 	private No root;
+	private ArrayList<No> activyts;
 	
 	public Tree(){
 		this.root = null;
+		activyts = new ArrayList<No>();
 	}
 	
 	public Tree(No root){
@@ -20,16 +23,27 @@ public class Tree {
 	public void setRoot(No root) {
 	        this.root = root;
 	}
+	public boolean searchNo(No no){
+		for(No node : activyts){
+			if(no == node){
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	//todos esses metodos tem que vim do mesmo usuario
 	// esse metodo deve analizar a data para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
 	public void dateAnalizer(){
 		
+		
 	}
 	
 	// esse metodo deve analizar a equipament para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
-	public void equipamentAnalizer(){
-		
+	public void equipamentAnalizer(No no){
+		if(!this.searchNo(no)){
+			activyts.add(no);
+		}
 	}
 	
 	// esse metodo deve analizar a activity para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar

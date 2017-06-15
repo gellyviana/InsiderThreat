@@ -3,6 +3,7 @@ package br.imd.tree;
 import java.util.ArrayList;
 
 import br.imd.factory.GenerateObject;
+import br.imd.factory.GenerateObjectUser;
 import br.imd.factory.User;
 
 public class Value {
@@ -14,9 +15,12 @@ public class Value {
 	
 	public Value(){}
 	
-	public Value(ArrayList<GenerateObject> array){
+	public Value(ArrayList<Object> arrayObject){
 		//if (array) se o array for do tipo usuario e para pegar um usuario e gerar User
 		//else pegar as informações e gerar tipo dateGroup, equipament, activity
+		if(arrayObject.get(0).getClass().equals(User.class)){
+			
+		}
 		
 	}
 	public Value(User user){
@@ -58,5 +62,11 @@ public class Value {
 
 	public Activity getActivity(){
 		return this.activity;
+	}
+	public void instaceofUser(ArrayList<User> users){
+		for(User u : users){
+			UserTree user = new UserTree(u.getUserId(), u.getName());
+			System.out.println(user);
+		}
 	}
 }

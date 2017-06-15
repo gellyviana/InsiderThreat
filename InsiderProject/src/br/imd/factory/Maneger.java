@@ -19,9 +19,6 @@ public class Maneger {
 	private ArrayList<User> userList;
 	private ArrayList<Activity> activityList;
 	
-	private TreeCreate tree;
-	private GenerateObject help;
-	
 	public Maneger(){
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
@@ -47,9 +44,9 @@ public class Maneger {
 			}
 			
 		}
-		//for (int i = 0; i < userList.size(); i++){
-			//System.out.println(getUserList().get(i).toString());
-		//}
+//		for (int i = 0; i < activityList.size(); i++){
+//			System.out.println(getActivity().get(i).toString());
+//		}
 	}
 	
 	public void readUser(String filename){
@@ -71,6 +68,10 @@ public class Maneger {
 	
 	public ArrayList<User> getUserList(){
 			return userList;
+	}
+	
+	public ArrayList<Activity> getActivity(){
+		return activityList;
 	}
 
 }
