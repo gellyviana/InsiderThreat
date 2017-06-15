@@ -5,7 +5,9 @@ import java.util.Iterator;
 
 import br.imd.read.LogEntry;
 import br.imd.read.LogfileReader;
-import br.imd.tree.TreeCreate;
+import br.imd.tree.No;
+import br.imd.tree.Tree;
+import br.imd.tree.Value;
 
 /**
  * Classe criada para conduzir uma linha de um arquivo
@@ -44,9 +46,7 @@ public class Maneger {
 			}
 			
 		}
-//		for (int i = 0; i < activityList.size(); i++){
-//			System.out.println(getActivity().get(i).toString());
-//		}
+		instanceofManeger();
 	}
 	
 	public void readUser(String filename){
@@ -73,5 +73,16 @@ public class Maneger {
 	public ArrayList<Activity> getActivity(){
 		return activityList;
 	}
-
+	public void printArrayList(){
+		for(User u : userList){
+			System.out.println(u.getUserId());
+		}
+	}
+	public void instanceofManeger(){
+		for(User u : this.userList){
+			No noUsers = new No(u);
+			Tree tree = new Tree(noUsers);
+		}
+		
+	}
 }

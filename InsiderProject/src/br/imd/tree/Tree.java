@@ -2,18 +2,16 @@ package br.imd.tree;
 
 import java.util.ArrayList;
 
+import br.imd.factory.User;
+
 public class Tree {
 	
 	private No root;
 	private ArrayList<No> activyts;
 	
-	public Tree(){
-		this.root = null;
-		activyts = new ArrayList<No>();
-	}
-	
 	public Tree(No root){
 		this.root = root;
+		activyts = new ArrayList<No>();
 	}
 	
 	public No getRoot() {
@@ -53,6 +51,9 @@ public class Tree {
 	
 	// esse metodo deve analizar a data para saber se ela esta no array filho, se tiver tem que incrementar, senao tem que adicionar
 	public void existUrl(){
+		
+	}
+	private void setUser(User user){
 		
 	}
 	

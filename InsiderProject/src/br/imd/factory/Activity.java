@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public abstract class  Activity{
+public abstract class  Activity extends Info{
 	private String id;
 	private LocalDate date;
 	private LocalTime time;

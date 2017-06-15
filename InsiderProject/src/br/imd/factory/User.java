@@ -2,7 +2,7 @@ package br.imd.factory;
 
 import br.imd.tree.Tree;
 
-public class User{
+public class User extends Info{
 	
 	private String name;
 	private String userId;
@@ -10,7 +10,7 @@ public class User{
 	private String domain;
 	private String role;
 	private String[] userLine;
-	private Tree root;
+	private Tree tree;
 	
 	public User(String[] userLine){
 		this.name = userLine[0];
@@ -19,7 +19,9 @@ public class User{
 		this.domain = userLine[2];
 		this.role = userLine[4];
 		this.userLine = userLine;
-		root = new Tree();
+	}
+	public User(User user){
+		//tree = new Tree();
 	}
 	public String getName() {
 		return name;

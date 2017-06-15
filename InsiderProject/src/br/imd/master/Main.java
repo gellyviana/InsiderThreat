@@ -1,13 +1,12 @@
-package br.imd.read;
+package br.imd.master;
 
 import br.imd.factory.Maneger;
-import br.imd.tree.TreeCreate;
-import br.imd.view.PrimeView;
 
-public class MainLeituraArquivo {
+public class Main {
 
 	public static void main(String[] args) {
-
+		// TODO Auto-generated method stub
+		
 		Maneger maneger = new Maneger();
 		
 		maneger.readUser("ldap.csv");
@@ -23,4 +22,6 @@ public class MainLeituraArquivo {
 		//v.setVisible(true);
 
 	}
+
 }
+

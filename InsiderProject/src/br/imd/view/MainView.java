@@ -33,7 +33,7 @@ import br.imd.exception.NullWayException;
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.04
  */
-public class PrimeView extends JFrame implements ActionListener {
+public class MainView extends JFrame implements ActionListener {
 
 	//
 	JDesktopPane dtp;
@@ -52,7 +52,7 @@ public class PrimeView extends JFrame implements ActionListener {
 	//JTextArea textArea;
 	JButton save;
 
-	public PrimeView() {
+	public MainView() {
 		dtp = new JDesktopPane();
 		mnbar = new JMenuBar();
 		fileLogs = new JMenu("Logs");
