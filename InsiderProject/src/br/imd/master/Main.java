@@ -11,7 +11,7 @@ public class Main {
 		
 		maneger.readUser("ldap.csv");
 		
-		maneger.readActivity("device.csv");
+//		maneger.readActivity("device.csv");
 		
 //		maneger.readActivity("logon-sumarizado.csv");
 		

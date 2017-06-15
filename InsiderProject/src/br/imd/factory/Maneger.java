@@ -20,6 +20,7 @@ public class Maneger {
 
 	private ArrayList<User> userList;
 	private ArrayList<Activity> activityList;
+	private static ArrayList<Tree> tree;
 	
 	public Maneger(){
 		userList = new ArrayList<User>();
@@ -79,10 +80,17 @@ public class Maneger {
 		}
 	}
 	public void instanceofManeger(){
+		tree = new ArrayList<Tree>();
+		Tree t ;
+		No noUsers;
 		for(User u : this.userList){
-			No noUsers = new No(u);
-			Tree tree = new Tree(noUsers);
+			noUsers = new No(u);
+			t = new Tree(noUsers, u);
+			tree.add(t);
 		}
-		
+//		for(Tree t: tree){
+			System.out.println(tree.get(0).getRoot().getValue());
+			
+//		}
 	}
 }

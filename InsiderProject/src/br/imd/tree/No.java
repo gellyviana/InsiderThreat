@@ -47,11 +47,13 @@ public class No {
     }
     
     public void insertChildren(Info value){
-    	if(this.consultChildren(value)){
-    		//pega a hora da atividade para passar como parametro no setHistogram 
-    		//setHistogram(1);
-    	}else{
+    	if(children.isEmpty()){
     		children.add(value);
+    	}else if(consultChildren(value)){
+        		//pega a hora da atividade para passar como parametro no setHistogram 
+        		//setHistogram(1);
+    	}else{
+    		insertChildren(value);
     		//precisa da hora da atividade para setHistogram
     		//setHistogram(1);
     	}

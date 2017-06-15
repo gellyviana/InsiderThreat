@@ -2,18 +2,22 @@ package br.imd.tree;
 
 import java.util.ArrayList;
 
+import br.imd.factory.Info;
 import br.imd.factory.User;
 
 public class Tree {
-	
+	private User user;
 	private No root;
 	private ArrayList<No> activyts;
 	
-	public Tree(No root){
+	public Tree(No root, User user){
+		user = new User(user);
 		this.root = root;
 		activyts = new ArrayList<No>();
 	}
-	
+	public Tree(Info no){
+		
+	}
 	public No getRoot() {
 	        return root;
 	 }
@@ -56,82 +60,9 @@ public class Tree {
 	private void setUser(User user){
 		
 	}
-	
-	/**
-	public void insertValue(Value value) {
-        Value valor = new Value(value);
-        No no = new No();
-       inserir(no);
-    }
-
-	private void inserir(No no) {
-		if(this.root == null){
-		   this.root = no;
-		}else {
-			if (buscar(no.getValue())){
-				no.setHistogram(1);
-			}else{
-				no.setChildren(no.getValue());
-			}
+	public void printTree(){
+		for(No no : activyts){
+			System.out.println(no.getValue());
 		}
 	}
-				//if (this.root.getRight() == null){
-					//this.root.setRight(no);
-				//}
-				//this.root.setLeft(no);
-			//}
-			//else if (no.getAluno().getMatricula() < this.root.getAluno().getMatricula()){
-				//if (this.root.getLeft() == null){
-					//this.root.setLeft(no);
-				//}
-				//this.root.setRight(no);
-			//}
-		
-	
-	public Value buscar(Value value, No root){
-		if (root == null){
-			return null;
-		}
-		if (getRoot().getValue() == value){
-			return getRoot().getValue();
-		}else {
-			return buscar(value, root.getChildren());
-		}
-	}
-	
-	/**public void percorrerInOrdem(No root){
-		if(root != null){
-			if(root.getLeft() != null){
-				percorrerInOrdem(root.getLeft());
-			}
-			System.out.println(root.getAluno().getNome());
-			if (root.getRight() != null){
-				percorrerInOrdem(root.getRight());
-			}
-		}
-	}
-		
-	public void percorrerPosOrdem(No root){
-		if(root != null){
-			if(root.getLeft() != null){
-				percorrerPosOrdem(root.getLeft());
-			}
-			if (root.getRight() != null){
-				percorrerPosOrdem(root.getRight());
-			}
-			System.out.println(root.getAluno().getNome());
-		}
-	}
-		
-	public void percorrerPreOrdem(No root){
-		if(root != null){
-			System.out.println(root.getAluno().getNome());
-			if(root.getLeft() != null){
-				percorrerPreOrdem(root.getLeft());
-			}
-			if (root.getRight() != null){
-				percorrerPreOrdem(root.getRight());
-			}
-		}
-	}*/
 }
