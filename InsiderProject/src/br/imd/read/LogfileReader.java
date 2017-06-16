@@ -20,15 +20,14 @@ import java.util.Scanner;
  * @version 2017.06.04 */
 public class LogfileReader
 {
-    // The data format in the log file.
+	// O formato dos dados no arquivo de log.
     private String format;
-    
-    // Where the file's contents are stored in the form
-    // of LogEntry objects.
+    // Local onde sera armazenado o conteudo do arquivo 
+    // na forma de objetos do tipo LogEntry
     private ArrayList<LogEntry> entries;
     // An iterator over entries.
     private Iterator<LogEntry> dataIterator;
-    
+    //String que contem a linha do arquivo(??? sera que deve manter)
     private String logline;
     
     /**
@@ -37,37 +36,37 @@ public class LogfileReader
     public LogfileReader() {}
     
     /**
-     * Cria um LogfileReader que recebe o nome de um arquivo
+     * Construtor que cria  um LogfileReader, recebe o nome de um arquivo
      * para ser lido, e coloca as linhas em array de String. 
-     * @param filename The file of log data.
+     * @param filename O arquivo comos dados do log.
      */
     public LogfileReader(String filename){
        
     	// O formato da linha do arquivo.
         format = "Field1 Field2 Field3 Field4 Field5";
-        // Onde será armazenado os campos.
+        // ArrayList que armazenara as linhas do arquivo de log.
         entries = new ArrayList<LogEntry>();
         
         // Tentar ler o conjunto completo de dados do arquivo.
         boolean dataRead;
         try{
             // Locate the file with respect to the current environment.
-        	String caminho = "file:///home/gelly/workspace/InsiderProject1/log/";
-        	//String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
+        	//String caminho = "file:///home/gelly/workspace/InsiderProject1/log/";
+        	String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
             URL fileURL = new URL(caminho + filename);
-            		//getClass().getClassLoader().getResource(filename); //getResouce pega o arquivo na pasta bin
             
             if(fileURL == null) {
                 throw new FileNotFoundException(filename);
             }
             Scanner logfile = new Scanner(new File(fileURL.toURI()));
-            // Read the data lines until the end of file.
+            // Ler as linhas de dados até nao haver mais linha no arquivo.
             while(logfile.hasNextLine()) {
                 logline = logfile.nextLine();
-                // Break up the line and add it to the list of entries.
+             // Quebra a linha e adiciona no ArrayList entries.
                 LogEntry entry = new LogEntry(logline);
                 entries.add(entry);
             }
+            //Fecha o arquivo apos a leitura.
             logfile.close();
             dataRead = true;
         }
@@ -83,7 +82,7 @@ public class LogfileReader
         	System.out.println("Deu erro");
         	dataRead = false;
         }
-        // If we couldn't read the log file, use simulated data.
+        // Se nao foi possivel ler o arquivo informa.
         if(!dataRead) {
             System.out.println("Falha na leitura do arquivo: " + filename);
         }
@@ -92,6 +91,10 @@ public class LogfileReader
         reset();
     }
     
+    /**
+     * Metodo que retornna a linha de log. 
+     * @return logline A linha do arquivo
+     */
      public String getLogline() {
 		return logline;
 	}
@@ -107,9 +110,7 @@ public class LogfileReader
     }
     
     /**
-     * Verifica se há próxima lina do arquivo
-     * e se existe retorna um objeto LogEntry.
-     * 
+     * Metodo que retorna a proxima lina do arquivo
      * @return Um LogEntry contendo os dados da 
      *         proxima linha de log.
      */
@@ -120,8 +121,8 @@ public class LogfileReader
     }
     
     /**
-     * @return A string explaining the format of the data
-     *         in the log file.
+     * Metodo que retorna o formato que esta sendo salvo os dados
+     * @return Uma string com o formato dos dados no arquivo de log.
      */
     public String getFormat()
     {
@@ -129,6 +130,7 @@ public class LogfileReader
     }
     
     /**
+     * Metodo 
      * Set up a fresh iterator to provide access to the data.
      * This allows a single file of data to be processed
      * more than once.
@@ -139,7 +141,7 @@ public class LogfileReader
     }
 
     /**
-     * Imprime o dado.
+     * Metodo que imprime uma linha de entries.
      */    
     public void printData()
     {
@@ -148,6 +150,10 @@ public class LogfileReader
         }
     }
     
+    /**
+     * Metodo que retorna o ArrayList de entries.
+     * @return O ArrayList de entries
+     */
     public ArrayList<LogEntry> getEntries(){
     	return entries;
     }

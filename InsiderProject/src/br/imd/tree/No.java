@@ -8,19 +8,20 @@ import br.imd.tree.Value;
 
 public class No {
 		
-	private Info value;
+	//private Info value;
+	private Value value;
 	private ArrayList<Info> children;
 	private int[] histogram;
 	private int level;
 
 	public No(User user) {
-		this.value = user;
+		this.value = new Value(user);
     	this.children = new ArrayList<Info>(); 
     	this.histogram = new int[24];
     	this.level = 0;
 	}
 	
-	public No(Info value) {
+	/**public No(Info value) {
     	this.value = value;
     	this.children = new ArrayList<Info>(); 
     	this.histogram = new int[24];
@@ -61,7 +62,11 @@ public class No {
     
     public void defineTimeHistogram(Info value){
     	
-    }
+    }*/
+	
+	public Value getValue(){
+		return this.value;
+	}
     public void setHistogram(int i){	
     	histogram[i]++;
     }

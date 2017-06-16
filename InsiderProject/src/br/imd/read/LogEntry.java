@@ -3,7 +3,7 @@ package br.imd.read;
 /**
  * Armazena os campos de linha de um arquivo csv num 
  * array.
- * Campos individual são disponibilizados através de
+ * Os campos individuais são disponibilizados através de
  * 05 métodos gets.
  * 
  * Baseado no projeto weblog-analyzer (capítulo 4)
@@ -15,8 +15,7 @@ public class LogEntry implements Comparable<LogEntry>{
 	//Onde os valores dos campos de uma simples linha de 
 	//um arquivo csv são armazenados
 	private String[] fieldValues;
-	
-	//Em qual índice em fielValues ​​os diferentes campos
+	//Em qual índice no array (fielValues) ​​os diferentes campos
 	//de uma linha de registro são armazenados.
 	private static final int FIELD1 = 0, FIELD2 = 1, FIELD3 = 2,
 					            FIELD4 = 3, FIELD5 = 4;
@@ -24,7 +23,7 @@ public class LogEntry implements Comparable<LogEntry>{
 	public LogEntry() {}
 	
 	/**
-	 * Construtor que decomponhe a linha de log em campos
+	 * Construtor que decomponhe a linha de registro em campos
 	 * individuais colocando em um array o conteudo dos arquivos csv
 	 * @param logline Uma simple linha do log.
 	 */
@@ -88,11 +87,7 @@ public class LogEntry implements Comparable<LogEntry>{
 	 */
 	//public String toString(){
 		//StringBuffer buffer = new StringBuffer();
-		//for (int value : dataValues){
-			// Coloca um zero nos números de um só digito.
-		//	if (value < 10){
-		//		buffer.append('0');
-		//	}
+		//for (int value : fieldValues){
 		//	buffer.append(value);
 		//	buffer.append(' ');
 		//}
@@ -135,7 +130,10 @@ public class LogEntry implements Comparable<LogEntry>{
       }
       return 0;
    }
-    
+    /**
+     * Metodo retorna uma string com todos os campos criados
+     * @return String Que contem todos os campos criados
+     */
     public String toString(){
     	return this.getField1()+this.getField2()+this.getField3()+this.getField4()+this.getField5();
     }

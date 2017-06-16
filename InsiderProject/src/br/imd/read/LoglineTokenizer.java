@@ -5,7 +5,6 @@ import java.util.Scanner;
 /**
  * Separa os campos de uma linha de arquivo, através
  * da utilização de um token
- * 
  * Baseado no projeto weblog-analyzer (capítulo 4)
  * Livro Programação orientada a objetos com JAVA
  * David J. Barnes and Michael Kolling (versão 2008.03.30) 

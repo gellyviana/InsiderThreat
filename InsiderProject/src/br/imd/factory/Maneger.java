@@ -1,6 +1,7 @@
 package br.imd.factory;
 
 import java.util.ArrayList;
+
 import java.util.Iterator;
 
 import br.imd.read.LogEntry;
@@ -14,14 +15,21 @@ import br.imd.tree.Value;
  * ao processo de criação de objeto
  *  
  * @author Adriana Azevedo e Gelly Viana
- *
+ * @version 2017.06.14
  */
 public class Maneger {
 
+	//Local onde vai ser acumulado os usuarios
 	private ArrayList<User> userList;
+	//Local onde vai ser acumulado as atividades
 	private ArrayList<Activity> activityList;
-	private static ArrayList<Tree> tree;
+	//nao entendi esse arrayList ?????
+	//private static ArrayList<Tree> tree;
 	
+	/**
+	 * Construtor que instancia um ArrayList de 
+	 * usuario e outro ArrayList de atividades
+	 */
 	public Maneger(){
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
@@ -44,10 +52,11 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				User user = GenerateObjectUser.createUser(s1);
 				userList.add(user);
+				treeBegin(user);
 			}
 			
 		}
-		instanceofManeger();
+		//instanceofManeger();
 	}
 	
 	public void readUser(String filename){
@@ -59,9 +68,9 @@ public class Maneger {
 	}
 	
 	/**
-	 * @author adriana
-	 * @return /index /tamanho
 	 * Função que retorna tamanho do ArrayList Usuários
+	 * @return /index /tamanho
+	 * 
 	 */
 	public int getIndex(){
 			return userList.size();
@@ -74,12 +83,18 @@ public class Maneger {
 	public ArrayList<Activity> getActivity(){
 		return activityList;
 	}
+	
 	public void printArrayList(){
 		for(User u : userList){
 			System.out.println(u.getUserId());
 		}
 	}
-	public void instanceofManeger(){
+	
+	public void treeBegin(User user){
+		Tree tree = new Tree(user);
+		
+	}
+	/**public void instanceofManeger(){
 		tree = new ArrayList<Tree>();
 		Tree t ;
 		No noUsers;
@@ -88,9 +103,9 @@ public class Maneger {
 			t = new Tree(noUsers, u);
 			tree.add(t);
 		}
-//		for(Tree t: tree){
-			System.out.println(tree.get(0).getRoot().getValue());
+		for(Tree t1: tree){
+			System.out.println(tree.get(10).getRoot().getValue());
 			
-//		}
-	}
+		}
+	}*/
 }

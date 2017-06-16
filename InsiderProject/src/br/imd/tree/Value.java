@@ -11,17 +11,27 @@ public class Value {
 	//private Equipament equipament;
 	//private Activity activity;
 	
-	public Value(){}
-	
-	public Value(ArrayList<User> userList){
-		//if (array) se o array for do tipo usuario e para pegar um usuario e gerar User
-		//else pegar as informações e gerar tipo dateGroup, equipament, activity		
-	}
 	public Value(User user){
-		
 		this.user = user;
 	}
 	
+	//public Value(ArrayList<User> userList){
+		//if (array) se o array for do tipo usuario e para pegar um usuario e gerar User
+		//else pegar as informações e gerar tipo dateGroup, equipament, activity		
+	//}
+	
+	/*public Value(User user){
+		
+		this.user = user;
+	}*/
+	
+	public void setUser(User user){
+		this.user = user;
+	}
+	
+	public User getUser(){
+		return this.user;
+	}
 	/**public Value(DateGroup dateGroup){
 		
 		this.dateGroup = dateGroup;
@@ -39,10 +49,6 @@ public class Value {
 		
 		this.activity = activity;
 	
-	}
-		
-	public User getUser(){
-		return this.user;
 	}
 	
 	public DateGroup getDataGroup(){
