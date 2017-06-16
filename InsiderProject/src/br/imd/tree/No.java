@@ -10,35 +10,37 @@ public class No {
 		
 	//private Info value;
 	private Value value;
-	private ArrayList<Info> children;
+	//private ArrayList<Value> children;
 	private int[] histogram;
 	private int level;
 
 	public No(User user) {
 		this.value = new Value(user);
-    	this.children = new ArrayList<Info>(); 
+    	//this.children = new ArrayList<Value>(); 
+    	//Haveria necessidade de um histograma em No usuário?
     	this.histogram = new int[24];
     	this.level = 0;
+    	//this.consultChildren(value);
 	}
 	
-	/**public No(Info value) {
+	public No(Value value, int level) {
     	this.value = value;
-    	this.children = new ArrayList<Info>(); 
+    	//this.children = new ArrayList<Value>(); 
     	this.histogram = new int[24];
-    	this.level ++;
+    	this.level = level;
     }
     
-	public Info getValue(){
+	public Value getValue(){
 		return this.value;
 	}
 	
-	 public void setValue(Info value) {
+	 public void setValue(Value value) {
 	        this.value = value;
 	 }
 
-    public boolean consultChildren(Info value){
+    /*public boolean consultChildren(Value value){
         	
-    	for(Info v: children){
+    	for(Value v: children){
     		if(value == v){
     			return true;
     		}else
@@ -47,7 +49,7 @@ public class No {
     	return false;
     }
     
-    public void insertChildren(Info value){
+    public void insertChildren(Value value){
     	if(children.isEmpty()){
     		children.add(value);
     	}else if(consultChildren(value)){
@@ -58,15 +60,16 @@ public class No {
     		//precisa da hora da atividade para setHistogram
     		//setHistogram(1);
     	}
+    }*/
+    public int getLevel(){
+    	return this.level;
     }
-    
     public void defineTimeHistogram(Info value){
     	
-    }*/
-	
-	public Value getValue(){
-		return this.value;
-	}
+    }
+    public void setLevel(int level){
+    	this.level = level;
+    }
     public void setHistogram(int i){	
     	histogram[i]++;
     }

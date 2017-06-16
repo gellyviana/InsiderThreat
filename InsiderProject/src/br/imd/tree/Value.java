@@ -1,30 +1,32 @@
 package br.imd.tree;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
+import br.imd.factory.Activity;
 import br.imd.factory.User;
 
 public class Value {
 	
 	private User user;
-	//private DateGroup dateGroup;
-	//private Equipament equipament;
-	//private Activity activity;
+	private LocalTime dateGroup;
+	private String equipament;
+	private Activity activity;
 	
 	public Value(User user){
 		this.user = user;
 	}
 	
-	//public Value(ArrayList<User> userList){
-		//if (array) se o array for do tipo usuario e para pegar um usuario e gerar User
-		//else pegar as informações e gerar tipo dateGroup, equipament, activity		
-	//}
+	public Value(LocalTime dateGroup){
+		this.dateGroup = dateGroup;
+	}
+	public Value(String equipament){
+		this.equipament = equipament;
+	}
 	
-	/*public Value(User user){
-		
-		this.user = user;
-	}*/
-	
+	public Value(Activity activity){
+		this.activity = activity;
+	}
 	public void setUser(User user){
 		this.user = user;
 	}
@@ -32,34 +34,16 @@ public class Value {
 	public User getUser(){
 		return this.user;
 	}
-	/**public Value(DateGroup dateGroup){
-		
-		this.dateGroup = dateGroup;
 	
-	}
-	
-	public Value(Equipament equipament){
-		
-		this.equipament = equipament;
-	
-	}
-	
-	public Value(Activity activity){
-		
-		
-		this.activity = activity;
-	
-	}
-	
-	public DateGroup getDataGroup(){
+	public LocalTime getDataGroup(){
 		return this.dateGroup;
 	}
 	
-	public Equipament getEquipament(){
+	public String getEquipament(){
 		return this.equipament;
 	}
 
 	public Activity getActivity(){
 		return this.activity;
-	}*/
+	}
 }

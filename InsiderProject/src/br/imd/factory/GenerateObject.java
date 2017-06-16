@@ -8,14 +8,4 @@ package br.imd.factory;
  * @version 2017.06.04 */
 public abstract class GenerateObject {
 	
-	//private String[] aux;
-			
-	//public String[] getAux() {
-		//return aux;
-	//}
-
-	//public void setAux(String[] aux) {
-		//this.aux = aux;
-	//}	
-	
 }

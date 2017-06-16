@@ -39,15 +39,13 @@ public class MainView extends JFrame implements ActionListener {
 	JDesktopPane dtp;
 	JMenuBar mnbar;
 	JMenu fileLogs;
-	JMenu fileRela;
-	JMenu exit;
+	JMenu fileOpcoes;
 	
+	JMenuItem fileRela;
+	JMenuItem fileCarregar;
+	JMenuItem mHelp;
+	JMenuItem mSair;
 	
-	JMenuItem mDevice;
-	JMenuItem mLdap;
-	JMenuItem mHttps;
-	JMenuItem mHttpc;
-	JMenuItem mLogon;
 
 	//JTextArea textArea;
 	JButton save;
@@ -55,16 +53,12 @@ public class MainView extends JFrame implements ActionListener {
 	public MainView() {
 		dtp = new JDesktopPane();
 		mnbar = new JMenuBar();
-		fileLogs = new JMenu("Logs");
-		fileRela = new JMenu("Relatórios");
-		exit = new JMenu("Sair");
-		mDevice = new JMenuItem("Device");
-		mLdap = new JMenuItem("LDAP");
-		mHttps = new JMenuItem("Http- Sumarizado");
-		mHttpc = new JMenuItem("Http- Completo");
-		mHttpc = new JMenuItem("Http- Completo");
-		mLogon = new JMenuItem("Logon");
-
+		fileLogs = new JMenu("Arquivos");
+		fileCarregar = new JMenuItem("Carregar Arquivos");
+		fileRela = new JMenuItem("Gerar Relatórios");
+		fileOpcoes = new JMenu("Opções");
+		mHelp = new JMenuItem("Help");
+		mSair= new JMenuItem("Sair");
 	}
 
 	public void start() {
@@ -72,15 +66,14 @@ public class MainView extends JFrame implements ActionListener {
 		ct.setLayout(new BorderLayout());
 
 		//mDevice.addActionListener(e -> salveFile());
-		fileLogs.add(mDevice);
-		fileLogs.add(mLdap);
-		fileLogs.add(mHttps);
-		fileLogs.add(mHttpc);
-		fileLogs.add(mLogon);
-
+		fileLogs.add(fileCarregar);
+		fileLogs.add(fileRela);
+		
+		fileOpcoes.add(mHelp);
+		fileOpcoes.add(mSair);
+		
 		mnbar.add(fileLogs);
-		mnbar.add(fileRela);
-		mnbar.add(exit);
+		mnbar.add(fileOpcoes);
 		setJMenuBar(mnbar);
 		
 		ct.add(BorderLayout.CENTER, dtp);
@@ -89,31 +82,12 @@ public class MainView extends JFrame implements ActionListener {
 		setResizable(false);
 		setTitle("Insidser Project");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-		exit.addMenuListener(new MenuListener() {
-			public void menuSelected(MenuEvent e) {
-				System.exit(0);
-			}
-
-			@Override
-			public void menuDeselected(MenuEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void menuCanceled(MenuEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 		
-		mDevice.addActionListener(this);
-		mLdap.addActionListener(this);
-		mHttps.addActionListener(this);
-		mHttpc.addActionListener(this);
-		mLogon.addActionListener(this);
-
+		mHelp.addActionListener(this);
+		mSair.addActionListener(this);
+		fileCarregar.addActionListener(this);
+		fileRela.addActionListener(this);
+		
 	}
 /**
  * Classe responsável em projetar os possíveis caminhos para buscar dos 
@@ -139,47 +113,20 @@ public class MainView extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getActionCommand().equals(mDevice)) {
-			try {
-				salveFile();
-			} catch (NullWayException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}	
-		} else if (e.getActionCommand().equals(mLdap)) {
-			try {
-				salveFile();
-			} catch (NullWayException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} else if (e.getActionCommand().equals(mHttps)) {
-			try {
-				salveFile();
-			} catch (NullWayException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} else if (e.getActionCommand().equals(mHttpc)) {
-			try {
-				salveFile();
-			} catch (NullWayException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} else {
-			try {
-				salveFile();
-			} catch (NullWayException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		if (e.getSource() == mSair) {
+				System.exit(0);	
+		} else if(e.getActionCommand().equals(fileCarregar)){
+			
+		}else if(e.getActionCommand().equals(mHelp)){
+			
+		}else{
+			
 		}
 			
 	}
 
 	private void openTree() throws NullWayException {
-		FileTree ft = new FileTree(salveFile());
+		//FileTree ft = new FileTree(salveFile());
 	}
 
 }

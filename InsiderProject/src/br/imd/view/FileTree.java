@@ -86,5 +86,5 @@ public class FileTree extends JPanel {
   public Dimension getPreferredSize() {
     return new Dimension(200, 400);
   }
-
+  
 }

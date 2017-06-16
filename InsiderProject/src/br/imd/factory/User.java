@@ -21,7 +21,7 @@ public class User extends Info{
 		this.userLine = userLine;
 	}
 	public User(User user){
-		//tree = new Tree(Info no);
+		//tree = new Tree(Value no);
 	}
 	public String getName() {
 		return name;

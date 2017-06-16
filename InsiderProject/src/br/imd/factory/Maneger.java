@@ -24,7 +24,7 @@ public class Maneger {
 	//Local onde vai ser acumulado as atividades
 	private ArrayList<Activity> activityList;
 	//nao entendi esse arrayList ?????
-	//private static ArrayList<Tree> tree;
+	private ArrayList<Tree> forest;
 	
 	/**
 	 * Construtor que instancia um ArrayList de 
@@ -33,6 +33,7 @@ public class Maneger {
 	public Maneger(){
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
+		forest = new ArrayList<Tree>();
 	}
 		
 	public void createObject(String filename){
@@ -56,7 +57,6 @@ public class Maneger {
 			}
 			
 		}
-		//instanceofManeger();
 	}
 	
 	public void readUser(String filename){
@@ -92,20 +92,14 @@ public class Maneger {
 	
 	public void treeBegin(User user){
 		Tree tree = new Tree(user);
-		
+		forest.add(tree);
 	}
-	/**public void instanceofManeger(){
-		tree = new ArrayList<Tree>();
-		Tree t ;
-		No noUsers;
-		for(User u : this.userList){
-			noUsers = new No(u);
-			t = new Tree(noUsers, u);
-			tree.add(t);
+	public ArrayList<Tree> getForest(){
+		return this.forest;
+	}
+	public void printTree(){
+		for(Tree t: forest){
+			System.out.println(t.getRoot().getValue());
 		}
-		for(Tree t1: tree){
-			System.out.println(tree.get(10).getRoot().getValue());
-			
-		}
-	}*/
+	}
 }

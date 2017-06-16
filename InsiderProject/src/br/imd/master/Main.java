@@ -1,15 +1,20 @@
 package br.imd.master;
 
+import java.util.ArrayList;
+
 import br.imd.factory.Maneger;
+import br.imd.tree.Tree;
+import br.imd.view.MainView;
 
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Maneger maneger = new Maneger();
-		
-		maneger.readUser("ldap.csv");
+	    Maneger maneger = new Maneger();
+	    maneger.readUser("ldap.csv");
+//		ArrayList<Tree> forest = maneger.getForest();
+		//maneger.readUser("ldap.csv");
 		
 //		maneger.readActivity("device.csv");
 		
@@ -17,7 +22,7 @@ public class Main {
 		
 //		maneger.readActivity("http-sumarizado.csv");
 	
-		//PrimeView v = new PrimeView();
+		//MainView v = new MainView();
 		//v.start();
 		//v.setVisible(true);
 
