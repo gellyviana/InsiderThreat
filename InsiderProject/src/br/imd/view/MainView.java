@@ -3,12 +3,9 @@ package br.imd.view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -17,10 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JTextArea;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
-
 import br.imd.exception.NullWayException;
 
 
@@ -50,8 +43,6 @@ public class MainView extends JFrame implements ActionListener {
 	JMenuItem mHelp;
 	JMenuItem mSair;
 	
-
-	//JTextArea textArea;
 	JButton save;
 
 	public MainView() {
@@ -63,13 +54,13 @@ public class MainView extends JFrame implements ActionListener {
 		fileOpcoes = new JMenu("Opções");
 		mHelp = new JMenuItem("Help");
 		mSair= new JMenuItem("Sair");
+		start();
 	}
 
 	public void start() {
 		Container ct = this.getContentPane();
 		ct.setLayout(new BorderLayout());
 
-		//mDevice.addActionListener(e -> salveFile());
 		fileLogs.add(fileCarregar);
 		fileLogs.add(fileRela);
 		
@@ -93,45 +84,45 @@ public class MainView extends JFrame implements ActionListener {
 		fileRela.addActionListener(this);
 		
 	}
-/**
- * Classe responsável em projetar os possíveis caminhos para buscar dos 
- * arquivos de Logs.
- */
-	public File salveFile() throws NullWayException{
-		JFileChooser fileChooser = new JFileChooser();
-		int value = fileChooser.showSaveDialog(save);
-		File file, way = null;
-		
-		if(value == JFileChooser.APPROVE_OPTION) {
-			file = fileChooser.getSelectedFile();
-			way = new File("file:" + file);
-			System.out.println(way);
-			if(way == null){
-				throw new NullWayException("Caminho não encontrado");
-			}
-			return way;
-		}
-		return way;			
-	}
-
 	
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == mSair) {
 				System.exit(0);	
-		} else if(e.getActionCommand().equals(fileCarregar)){
+		}else if(e.getSource() == mHelp){
 			
-		}else if(e.getActionCommand().equals(mHelp)){
-			
-		}else if(e.getActionCommand().equals(fileCarregar)){
+		}else if(e.getSource() == fileCarregar){
 			CarregarArquivos carregar = new CarregarArquivos("Seleção por Data");
+			dtp.add(carregar);
 			carregar.setVisible(true);
-		}
+		}else{
 			
+		}	
 	}
 
 	private void openTree() throws NullWayException {
 		//FileTree ft = new FileTree(salveFile());
 	}
+	
+	/**
+	 * Classe responsável em projetar os possíveis caminhos para buscar dos 
+	 * arquivos de Logs.
+	 */
+		public File salveFile() throws NullWayException{
+			JFileChooser fileChooser = new JFileChooser();
+			int value = fileChooser.showSaveDialog(save);
+			File file, way = null;
+			
+			if(value == JFileChooser.APPROVE_OPTION) {
+				file = fileChooser.getSelectedFile();
+				way = new File("file:" + file);
+				System.out.println(way);
+				if(way == null){
+					throw new NullWayException("Caminho não encontrado");
+				}
+				return way;
+			}
+			return way;			
+		}
 
 }

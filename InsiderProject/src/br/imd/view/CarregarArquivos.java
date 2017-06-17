@@ -15,19 +15,19 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//Labels 
-	JLabel lCodFornecedor = new JLabel("Codigo: ");
-	JLabel lNomeFornecedor = new JLabel("Nome Fornecedor: ");
-	JLabel lCnpj = new JLabel("CNPJ: ");
 	
-	//Campos para preencher
-	JTextField tCodFornecedor = new JTextField();
-	JTextField tNomeFornecedor = new JTextField();
-	JTextField tCnpj = new JTextField();
+	JLabel lDataInicio = new JLabel("Data Inicio: ");
+	JLabel lDataFinal = new JLabel("Data Final: ");
+	JLabel lIdUsuario = new JLabel("Id Usuário: ");
 	
-	//Buttons
-	JButton sub = new JButton("Submeter");
-	JButton lim = new JButton("Limpar");
+	
+	JTextField tDataFim = new JTextField();
+	JTextField tDataInicio = new JTextField();
+	JTextField tIdUsuario = new JTextField();
+	
+	
+	JButton bBuscar = new JButton("Buscar");
+	JButton bLimpar = new JButton("Limpar");
 	
 	
 	public CarregarArquivos(String n){
@@ -37,30 +37,29 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
-		lCodFornecedor.setBounds(10,10,40,30);
-		tCodFornecedor.setBounds(130,10,50,25);
-		lNomeFornecedor.setBounds(10,40,100,30);
-		tNomeFornecedor.setBounds(130,40,100,25);
-		lCnpj.setBounds(10,70,100,30);
-		tCnpj.setBounds(130,70,60,25);
+		lDataInicio.setBounds(10,10,40,30);
+		tDataInicio.setBounds(130,10,50,25);
+		lDataFinal.setBounds(10,40,100,30);
+		tDataFim.setBounds(130,40,100,25);
+		lIdUsuario.setBounds(10,70,100,30);
+		tIdUsuario.setBounds(130,70,60,25);
 
-		// idem
-		sub.setBounds(10 ,140,100,30);
-		lim.setBounds(120,140,100,30);
+		bBuscar.setBounds(10 ,140,100,30);
+		bLimpar.setBounds(120,140,100,30);
 		
-		c.add(lCodFornecedor);
-		c.add(tCodFornecedor);
-		c.add(lNomeFornecedor);
-		c.add(tNomeFornecedor);
-		c.add(lCnpj);
-		c.add(tCnpj);
-		c.add(sub);
-		c.add(lim);
-		
+		c.add(lDataInicio);
+		c.add(tDataInicio);
+		c.add(lDataFinal);
+		c.add(tDataFim);
+		c.add(lIdUsuario);
+		c.add(tIdUsuario);
+		c.add(bBuscar);
+		c.add(bLimpar);
 		
 		
-		sub.addActionListener(this);
-		lim.addActionListener(this);
+		
+		bBuscar.addActionListener(this);
+		bLimpar.addActionListener(this);
 		
 		setSize(350,230);
 		setTitle(n);
@@ -69,22 +68,22 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == sub){
+		if(e.getSource() == bBuscar){
 //			CarregarArquivos f = new CarregarArquivos();
 //			f.setIdFornecedor(tCodFornecedor.getText());
 //			f.setNomeFornecedor(tNomeFornecedor.getText());
 //			f.setCnpjFornecedor(tCnpj.getText());
 //			
-			tCodFornecedor.setText("");
-			tNomeFornecedor.setText("");
-			tCnpj.setText("");
+			tDataInicio.setText("");
+			tDataFim.setText("");
+			tIdUsuario.setText("");
 			
 //			Banco.inserirFornecedor(f);
 		}
-		else if(e.getSource() == lim){
-			tCodFornecedor.setText("");
-			tNomeFornecedor.setText("");
-			tCnpj.setText("");
+		else if(e.getSource() == bLimpar){
+			tDataInicio.setText("");
+			tDataFim.setText("");
+			tIdUsuario.setText("");
 		}
 		
 	}
