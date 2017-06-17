@@ -1,10 +1,8 @@
 package br.imd.factory;
 /**
- * 
+ * Classe reponsável em garantir o polimorfismo na  
+ * inserção dos tipos na arvore. (retirar os problemas de tipos na parte)
  * @author Adriana Azevedo e Gelly Viana Mota
- * Classe reponsável em retirar o os problemas de tipos na parte de 
- * inserção na arvore.
- *
  */
 public abstract class Info {
 

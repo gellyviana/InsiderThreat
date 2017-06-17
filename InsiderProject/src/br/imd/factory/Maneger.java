@@ -14,7 +14,7 @@ import br.imd.tree.Tree;
  * Classe criada para gerar os ArrayList de 
  * usuarios, atividades e arvores, utilizando-se
  * de um array de string que representa uma linha 
- * do arquivo lido
+ * do arquivo lido. 
  *  
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.14

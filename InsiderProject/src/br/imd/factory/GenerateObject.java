@@ -2,7 +2,8 @@ package br.imd.factory;
 
 /**
  * Classe abstrata para gerar um objeto a partir  
- * de um array de String com 5 campos.
+ * de um array de String com 5 campos. Funciona 
+ * como uma fabrica.
  * 
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.04 */
