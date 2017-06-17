@@ -11,5 +11,11 @@ public class UserValue extends Value{
 		this.idUser = user.getUserId();
 		this.name = user.getName();
 	}
+	public String getIdUser() {
+		return idUser;
+	}
 
+	public String getName() {
+		return name;
+	}
 }

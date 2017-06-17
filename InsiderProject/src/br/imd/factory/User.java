@@ -43,7 +43,6 @@ public class User extends Value{
 		this.email = userLine[3];
 		this.domain = userLine[2];
 		this.role = userLine[4];
-		this.userLine = userLine;
 	}
 	
 	/** Esse metodo vai se manter ou sair???????????????
@@ -90,16 +89,6 @@ public class User extends Value{
 	 */
 	public String getRole() {
 		return role;
-	}
-	
-	/**
-	 * Metodo que retorna o array de string
-	 * com a linha do arquivo de usuario.
-	 * @return Array de string A linga do 
-	 * arquivo de usuario.
-	 */
-	public String[] getUserLine(){
-		return this.userLine;
 	}
 	
 	/**

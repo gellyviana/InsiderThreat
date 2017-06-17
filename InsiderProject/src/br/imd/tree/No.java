@@ -33,7 +33,7 @@ public class No {
 	 */
 	public No(User user) {
 		this.value = user;
-    	//this.children = new ArrayList<Value>(); 
+    	this.children = new ArrayList<Value>(); 
     	//Haveria necessidade de um histograma em No usuário????????????
     	this.histogram = new int[24];
     	this.level = 0;
@@ -69,6 +69,24 @@ public class No {
 	 }
 	 public boolean analizerLevel(Value value){
 		 if(value instanceof DateGroup){
+			 for(Value v : children){
+				 if(v.equals(value)){
+					 return true;
+				 }
+			 }
+		 }else if(value instanceof UrlValue){
+			 for(Value v : children){
+				 if(v.equals(value)){
+					 return true;
+				 }
+			 }
+		 }else if(value instanceof Equipament){
+			 for(Value v : children){
+				 if(v.equals(value)){
+					 return true;
+				 }
+			 }
+		 }else if(value instanceof ActivityValue){
 			 for(Value v : children){
 				 if(v.equals(value)){
 					 return true;

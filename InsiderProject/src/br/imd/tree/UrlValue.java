@@ -9,9 +9,10 @@ public class UrlValue extends Value{
 	
 	public UrlValue(Activity activity){
 		if(activity instanceof Http){
-			Http url = (Http)activity;
-			this.urlValue = url.getAction();
+			urlValue= ((Http)activity).getAction();	
 		}	
 	}
-
+	public String getUrlValue(){
+		return this.urlValue;
+	}
 }

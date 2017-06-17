@@ -10,12 +10,12 @@ public class ActivityValue extends Value{
 	
 	public ActivityValue(Activity activity){
 		if(activity instanceof Logon){
-			Logon logon = (Logon)activity;
-			this.activity = logon.getAction();
+			this.activity = ((Logon)activity).getAction();
 		}else if(activity instanceof Device){
-			Device device = (Device)activity;
-			this.activity = device.getAction();
+			this.activity = ((Device)activity).getAction();
 		}
 	}
-
+	public String getActivity(){
+		return this.activity;
+	}
 }

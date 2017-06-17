@@ -1,9 +1,8 @@
 package br.imd.tree;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import br.imd.factory.Activity;
+import br.imd.factory.Http;
+import br.imd.factory.Logon;
 import br.imd.factory.User;
 
 /**
@@ -25,7 +24,7 @@ public class Tree {
 	 */
 	public Tree(User user) {
 		this.root = new No(user);
-		this.printTree();
+		//this.printTree();
 	}
 	
 	/**
@@ -49,8 +48,27 @@ public class Tree {
 	 * @author Adriana Azevedo e Gelly Viana Mota
 	 * @param Activity
 	 */
-	public void insert(Activity activity){
-		
+	public boolean insert(Activity activity){
+		if(activity instanceof Http){
+			UrlValue url = new UrlValue(activity);
+			if(!root.analizerLevel(url)){
+				root.insertChildren(url);
+				return true;
+			}
+		}else if(activity instanceof Logon){
+			ActivityValue activityLogon = new ActivityValue(activity);
+			if(!root.analizerLevel(activityLogon)){
+				root.insertChildren(activityLogon);
+				return true;
+			}
+		}else{
+			ActivityValue activityDevice = new ActivityValue(activity);
+			if(!root.analizerLevel(activityDevice)){
+				root.insertChildren(activityDevice);
+				return true;
+			}
+		}
+		return false;
 	}
 	/**
 	 * Metodo que verifica se a subarvore
@@ -66,30 +84,6 @@ public class Tree {
 //			}
 //		}
 //		return false;
-//	}
-	
-	/**
-	 * 
-	 * @param no
-	 */
-//	public void insert(No no){
-//		// Cria o primeiro nivel da Arvore que são os usuarios
-//		if(this.subTree == null){
-//			this.subTree = new ArrayList<Tree>();
-//			this.subTree.get(0).setRoot(no);
-//		}else{
-//		//Se a subTree estiver vazia, alocamos duas posições no subTree 
-//		//vazia para representar No anomolo e No não anomolo.
-//			if(no.getLevel() == 1){
-//				for(int i = 0; i< 2; i++){
-//					subTree.add(new Tree());
-//					subTree.get(i).setRoot(no);
-//				}
-//			}else{
-//				subTree.add(new Tree());
-//				subTree.get(subTree.size()-1);
-//			}
-//		}
 //	}
 
 

@@ -35,7 +35,11 @@ import br.imd.exception.NullWayException;
  */
 public class MainView extends JFrame implements ActionListener {
 
-	//
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JDesktopPane dtp;
 	JMenuBar mnbar;
 	JMenu fileLogs;
@@ -119,8 +123,9 @@ public class MainView extends JFrame implements ActionListener {
 			
 		}else if(e.getActionCommand().equals(mHelp)){
 			
-		}else{
-			
+		}else if(e.getActionCommand().equals(fileCarregar)){
+			CarregarArquivos carregar = new CarregarArquivos("Seleção por Data");
+			carregar.setVisible(true);
 		}
 			
 	}
