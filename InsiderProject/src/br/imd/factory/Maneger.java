@@ -27,6 +27,7 @@ public class Maneger {
 	private ArrayList<Activity> activityList;
 	//Local onde vai ser acumulado as arvores geradas
 	private ArrayList<Tree> forest;
+	private Tree tree;
 	
 	/**
 	 * Construtor que instancia um ArrayList de 
@@ -58,6 +59,7 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				Activity activity = GenerateObjectActivity.createActivity(s1);
 				activityList.add(activity);
+				tree.insert(activity);
 			}
 		} else{
 			while (fileReader.hasMoreEntries()){
@@ -134,8 +136,11 @@ public class Maneger {
 	 * e adiciona na floresta
 	 */
 	public void treeBegin(User user){
-		Tree tree = new Tree(user);
+		tree = new Tree(user);
 		forest.add(tree);
+	}
+	public void activityTree(){
+		
 	}
 	
 	/**

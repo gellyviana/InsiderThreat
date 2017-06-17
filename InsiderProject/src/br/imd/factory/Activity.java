@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.14
  */
-public abstract class  Activity extends Info{
+public abstract class  Activity {
 	
 	//A string com a identificacao da atividade.
 	private String id;

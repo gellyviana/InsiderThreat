@@ -1,8 +1,8 @@
 package br.imd.tree;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
-import br.imd.factory.Info;
+//import java.util.ArrayList;
 import br.imd.factory.User;
 import br.imd.tree.Value;
 
@@ -20,7 +20,7 @@ public class No {
 	//private Info value;
 	//O valor que vai conter no No.
 	private Value value;
-	//private ArrayList<Value> children;
+	private ArrayList<Value> children;
 	//O Array de inteiros que contem o histograma.
 	private int[] histogram;
 	//Inteiro que representa o nivel do No na arvore.
@@ -32,7 +32,7 @@ public class No {
 	 * @param user Um usuario.
 	 */
 	public No(User user) {
-		this.value = new Value(user);
+		this.value = user;
     	//this.children = new ArrayList<Value>(); 
     	//Haveria necessidade de um histograma em No usuário????????????
     	this.histogram = new int[24];
@@ -45,11 +45,11 @@ public class No {
 	 * tipo valor. 
 	 * @param value, level O valor do No e em qual nivel se encontra.
 	 */
-	public No(Value value, int level) {
+	public No(Value value) {
     	this.value = value;
     	//this.children = new ArrayList<Value>(); 
     	this.histogram = new int[24];
-    	this.level = level;
+    	this.level ++;
     }
     
 	/**
@@ -67,8 +67,17 @@ public class No {
 	 public void setValue(Value value) {
 	        this.value = value;
 	 }
-
-    /*public boolean consultChildren(Value value){
+	 public boolean analizerLevel(Value value){
+		 if(value instanceof DateGroup){
+			 for(Value v : children){
+				 if(v.equals(value)){
+					 return true;
+				 }
+			 }
+		 }
+		 return false;
+	 }
+    public boolean consultChildren(Value value){
         	
     	for(Value v: children){
     		if(value == v){
@@ -84,13 +93,13 @@ public class No {
     		children.add(value);
     	}else if(consultChildren(value)){
         		//pega a hora da atividade para passar como parametro no setHistogram 
-        		//setHistogram(1);
+        		setHistogram(1);
     	}else{
     		insertChildren(value);
     		//precisa da hora da atividade para setHistogram
-    		//setHistogram(1);
+    		setHistogram(1);
     	}
-    }*/
+    }
 	 
 	/**
 	 * Metodo que retorna em que nivel se encontra o No.
@@ -105,7 +114,7 @@ public class No {
      * atividade se encontra.
      * @param value O valor que contem.
      */
-    public void defineTimeHistogram(Info value){
+    public void defineTimeHistogram(Value value){
     	
     }
     

@@ -1,6 +1,7 @@
 package br.imd.factory;
 
 import br.imd.tree.Tree;
+import br.imd.tree.Value;
 
 /**
  * Classe criada para gerar um tipo usuario que
@@ -13,7 +14,7 @@ import br.imd.tree.Tree;
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.14
  */
-public class User extends Info{
+public class User extends Value{
 	
 	//A string com o nome do usuario.
 	private String name;

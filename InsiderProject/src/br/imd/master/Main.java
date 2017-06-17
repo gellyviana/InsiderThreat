@@ -1,8 +1,11 @@
 package br.imd.master;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import br.imd.factory.Maneger;
+import br.imd.tree.DateGroup;
 import br.imd.tree.Tree;
 import br.imd.view.MainView;
 
@@ -13,6 +16,7 @@ public class Main {
 		
 	    Maneger maneger = new Maneger();
 	    maneger.readUser("ldap.csv");
+	    DateGroup date = new DateGroup(LocalDate.parse("2012-05-01"), LocalDate.parse("2012-05-01"));
 //		ArrayList<Tree> forest = maneger.getForest();
 		//maneger.readUser("ldap.csv");
 		
