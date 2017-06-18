@@ -68,8 +68,7 @@ public class Maneger {
 				User user = GenerateObjectUser.createUser(s1);
 				userList.add(user);
 				treeBegin(user);
-			}
-			
+			}		
 		}
 	}
 	
@@ -140,7 +139,7 @@ public class Maneger {
 		forest.add(tree);
 	}
 	public void activityTree(){
-		
+		//
 	}
 	
 	/**

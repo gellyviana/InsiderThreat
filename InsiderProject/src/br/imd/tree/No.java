@@ -17,7 +17,6 @@ import br.imd.tree.Value;
  */
 public class No {
 		
-	//private Info value;
 	//O valor que vai conter no No.
 	private Value value;
 	private ArrayList<Value> children;
@@ -100,9 +99,8 @@ public class No {
     	for(Value v: children){
     		if(value == v){
     			return true;
-    		}else
-    			return false;
-    		} 
+    		}
+    	} 
     	return false;
     }
     
@@ -113,7 +111,7 @@ public class No {
         		//pega a hora da atividade para passar como parametro no setHistogram 
         		setHistogram(1);
     	}else{
-    		insertChildren(value);
+    		children.add(value);
     		//precisa da hora da atividade para setHistogram
     		setHistogram(1);
     	}

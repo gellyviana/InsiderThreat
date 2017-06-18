@@ -39,7 +39,10 @@ public class DateGroup extends Value {
 			//Cria um intervalo de tempo.
 		}
 	}
-	public LocalDate getLocalDate(){
+	public LocalDate getLocalDateFim(){
 		return this.dateFim;
+	}
+	public LocalDate getLocalDateInicio(){
+		return this.dateInicio;
 	}
 }
