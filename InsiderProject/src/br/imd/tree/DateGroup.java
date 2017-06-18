@@ -2,6 +2,8 @@ package br.imd.tree;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import br.imd.factory.Activity;
 import br.imd.factory.Http;
 import br.imd.factory.Maneger;
@@ -16,8 +18,9 @@ import br.imd.factory.Maneger;
  */
 
 public class DateGroup extends Value {
-	private LocalDate dateFim;
-	private LocalDate dateInicio;
+	private LocalDate dateEnd;
+	private LocalDate dateBegin;
+	private LocalDate[] dateGroup;
 	private LocalTime time;
 	private String user;
 	/**
@@ -25,29 +28,38 @@ public class DateGroup extends Value {
 	 * @param dateFim
 	 * @param dateInicio
 	 */
-	public DateGroup(Activity date1, Activity date2){
-			if(date1 instanceof Activity){
-				this.dateInicio = ((Activity)date1).getDate();
-			}else{
-				this.dateFim = ((Activity)date2).getDate();
+	public DateGroup(String date1, String date2){
+			DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			dateBegin = LocalDate.parse(date1,d);
+			dateEnd = LocalDate.parse(date2,d);
+			dateGroup[0] = dateEnd;
+			if(date2 != null){
+				for(int i = 1; dateGroup[i] == dateEnd ; i++){
+					//dateGroup[i]++; //nao sei como incrementar a data dia a dia
+				}
 			}
+			//if(date1 instanceof Activity){
+				//this.dateInicio = ((Activity)date1).getDate();
+			//}else{
+				//this.dateFim = ((Activity)date2).getDate();
+			//}
 	}
 	
 	public void analyzerDate(){
-		if(dateFim == null){
+		if(dateEnd == null){
 			//Cria o meu No que é por uma data atual
-		}else if(dateFim == dateInicio){
+		}else if(dateEnd == dateBegin){
 			//Cria no No por data especifica
-		}else if(dateInicio == null){
+		}else if(dateBegin == null){
 			//Cria pelo um data fim 
 		}else{
 			//Cria um intervalo de tempo.
 		}
 	}
-	public LocalDate getLocalDateFim(){
-		return this.dateFim;
+	public LocalDate getLocalDateEnd(){
+		return this.dateEnd;
 	}
-	public LocalDate getLocalDateInicio(){
-		return this.dateInicio;
+	public LocalDate getLocalDateBegin(){
+		return this.dateBegin;
 	}
 }

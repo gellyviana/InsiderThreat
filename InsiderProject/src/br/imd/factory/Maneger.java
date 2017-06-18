@@ -29,7 +29,9 @@ public class Maneger {
 	private ArrayList<Activity> activityList;
 	//Local onde vai ser acumulado as arvores geradas
 	private ArrayList<Tree> forest;
-	ArrayList<LocalDate>intervalo;
+	
+	private ArrayList<LocalDate> intervalo;
+	
 	private Tree tree;
 	
 	/**
@@ -63,7 +65,7 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				Activity activity = GenerateObjectActivity.createActivity(s1);
 				activityList.add(activity);
-				tree.insert(activity);
+				//tree.insert(activity);
 			}
 		} else{
 			while (fileReader.hasMoreEntries()){

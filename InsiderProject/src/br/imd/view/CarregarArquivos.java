@@ -66,12 +66,13 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		if(e.getActionCommand().equals(bBuscar)){
 			tDataInicio.setText("");
 			tDataFim.setText("");
-			String dataInicio = tDataInicio.getText();
-			String dataFim = tDataFim.getText();
-			DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-			LocalDate inicio = LocalDate.parse(dataInicio, d);
-			LocalDate fim = LocalDate.parse(dataFim,d);
-			DateGroup dateGroup = new DateGroup(inicio,fim);
+			//Tem que colocar as duas datas no construtor de DateGroup
+			//String dataInicio = tDataInicio.getText();
+			//String dataFim = tDataFim.getText();
+			//DateTimeFormatter d = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+			//LocalDate inicio = LocalDate.parse(dataInicio, d);
+			//LocalDate fim = LocalDate.parse(dataFim,d);
+			//DateGroup dateGroup = new DateGroup(inicio,fim);
 			
 		}
 		else if(e.getActionCommand().equals(bLimpar)){
