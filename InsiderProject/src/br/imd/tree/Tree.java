@@ -59,7 +59,7 @@ public class Tree {
 		}else if(activity instanceof Logon){
 			ActivityValue activityLogon = new ActivityValue(activity);
 			if(!root.analizerLevel(activityLogon)){
-				root.insertChildren(activityLogon);
+				activityAnalizer(activityLogon);
 				return true;
 			}
 		}else if (activity instanceof Device){

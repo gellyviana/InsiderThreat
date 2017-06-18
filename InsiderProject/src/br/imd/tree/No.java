@@ -45,7 +45,7 @@ public class No {
 	 */
 	public No(Value value) {
     	this.value = value;
-    	//this.children = new ArrayList<Value>(); 
+    	this.children = new ArrayList<Value>(); 
     	this.histogram = new int[24];
     	this.level ++;
     }

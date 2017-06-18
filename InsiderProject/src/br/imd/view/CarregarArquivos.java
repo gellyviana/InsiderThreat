@@ -64,15 +64,15 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getActionCommand().equals(bBuscar)){
+			tDataInicio.setText("");
+			tDataFim.setText("");
 			String dataInicio = tDataInicio.getText();
-			System.out.println(dataInicio);
 			String dataFim = tDataFim.getText();
 			DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 			LocalDate inicio = LocalDate.parse(dataInicio, d);
 			LocalDate fim = LocalDate.parse(dataFim,d);
 			DateGroup dateGroup = new DateGroup(inicio,fim);
-			tDataInicio.setText("");
-			tDataFim.setText("");
+			
 		}
 		else if(e.getActionCommand().equals(bLimpar)){
 			tDataInicio.setText("");

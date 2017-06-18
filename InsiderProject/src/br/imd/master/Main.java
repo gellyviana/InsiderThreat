@@ -19,8 +19,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-//	    Maneger maneger = new Maneger();
-//	    maneger.readUser("ldap.csv");
+	    Maneger maneger = new Maneger();
+	    maneger.readUser("ldap.csv");
 //	    DateGroup date = new DateGroup(LocalDate.parse("2012-05-01"), LocalDate.parse("2012-05-01"));
 //		ArrayList<Tree> forest = maneger.getForest();
 		

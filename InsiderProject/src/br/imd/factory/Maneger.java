@@ -9,6 +9,7 @@ import br.imd.read.LogEntry;
 import br.imd.read.LogfileReader;
 //import br.imd.tree.No;
 import br.imd.tree.Tree;
+import br.imd.tree.Value;
 //import br.imd.tree.Value;
 
 /**
@@ -28,6 +29,7 @@ public class Maneger {
 	private ArrayList<Activity> activityList;
 	//Local onde vai ser acumulado as arvores geradas
 	private ArrayList<Tree> forest;
+	ArrayList<LocalDate>intervalo;
 	private Tree tree;
 	
 	/**
@@ -39,6 +41,7 @@ public class Maneger {
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
 		forest = new ArrayList<Tree>();
+		intervalo = new ArrayList<LocalDate>();
 	}
 		
 	/**
@@ -139,10 +142,33 @@ public class Maneger {
 		tree = new Tree(user);
 		forest.add(tree);
 	}
-	public void activityTree(LocalDate localDateF, LocalDate localDateI){
-		//Tenho que analisar o arrayList de atividade 
-		if(localDateF == null){
-			//tree.dateAnalizer(localDateI);
+	public void activityTree(Value localDateF, Value localDateI){	
+		for(Activity a : activityList){
+			//Se a data final for igual a nulo
+			if(localDateF == null){
+				//Se a data inicial for igual a data de alguma atividade de dentro do arrayList
+				if(localDateI.equals(a.getDate())){
+					//Percorro na floresta de arvores 
+					for(Tree tree : forest){
+						//Compara se a data da atividade ja existe no arrayList de NO
+						if(tree.getRoot().getValue().equals(a.getDate())){
+							tree.dateAnalizer(localDateI);
+						}
+					}
+				}
+			//Se a data inicial for igual a nulo
+			}else if(localDateI == null){
+				//Se a data final for igual a data de alguma atividade de dentro do arrayList
+				if(localDateF.equals(a.getDate())){
+					//Percorro na floresta de arvores 
+					for(Tree tree : forest){
+						//Compara se a data da atividade ja existe no arrayList de NO 
+						if(tree.getRoot().getValue().equals(a.getDate())){
+							tree.dateAnalizer(localDateF);
+						}
+					}
+				}
+			}
 		}
 	}
 	

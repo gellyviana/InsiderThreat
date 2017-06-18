@@ -3,6 +3,8 @@ package br.imd.tree;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import br.imd.factory.Activity;
+import br.imd.factory.Http;
+import br.imd.factory.Maneger;
 /**
  * Classe para representar um intervalo de tempo.
  * Temos dateInicio e dateFim.
@@ -23,9 +25,12 @@ public class DateGroup extends Value {
 	 * @param dateFim
 	 * @param dateInicio
 	 */
-	public DateGroup(LocalDate dateFim, LocalDate dateInicio){
-			this.dateFim = dateFim;
-			this.dateInicio = dateInicio;
+	public DateGroup(Activity date1, Activity date2){
+			if(date1 instanceof Activity){
+				this.dateInicio = ((Activity)date1).getDate();
+			}else{
+				this.dateFim = ((Activity)date2).getDate();
+			}
 	}
 	
 	public void analyzerDate(){
