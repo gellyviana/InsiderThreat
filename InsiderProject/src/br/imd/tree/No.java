@@ -33,7 +33,6 @@ public class No {
 	public No(User user) {
 		this.value = user;
     	this.children = new ArrayList<Value>(); 
-    	//Haveria necessidade de um histograma em No usuário????????????
     	this.histogram = new int[24];
     	this.level = 0;
     	//this.consultChildren(value);

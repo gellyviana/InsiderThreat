@@ -3,11 +3,14 @@ package br.imd.view;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import br.imd.tree.DateGroup;
 
 public class CarregarArquivos extends JInternalFrame implements ActionListener {
 
@@ -16,15 +19,11 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JLabel lDataInicio = new JLabel("Data Inicio: ");
-	JLabel lDataFinal = new JLabel("Data Final: ");
-	JLabel lIdUsuario = new JLabel("Id Usuário: ");
-	
-	
+	JLabel lDataInicio = new JLabel("Data Início:");
+	JLabel lDataFinal = new JLabel("Data Final:");
+
 	JTextField tDataFim = new JTextField();
 	JTextField tDataInicio = new JTextField();
-	JTextField tIdUsuario = new JTextField();
-	
 	
 	JButton bBuscar = new JButton("Buscar");
 	JButton bLimpar = new JButton("Limpar");
@@ -37,22 +36,19 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		Container c = this.getContentPane();
 		c.setLayout(null);
 		
-		lDataInicio.setBounds(10,10,40,30);
-		tDataInicio.setBounds(130,10,50,25);
-		lDataFinal.setBounds(10,40,100,30);
-		tDataFim.setBounds(130,40,100,25);
-		lIdUsuario.setBounds(10,70,100,30);
-		tIdUsuario.setBounds(130,70,60,25);
+		lDataInicio.setBounds(10,10,100,30);
+		tDataInicio.setBounds(130,10,100,25);
+		lDataFinal.setBounds(10,60,100,30);
+		tDataFim.setBounds(130,60,100,25);
+		
 
-		bBuscar.setBounds(10 ,140,100,30);
-		bLimpar.setBounds(120,140,100,30);
+		bBuscar.setBounds(40 ,140,100,30);
+		bLimpar.setBounds(200,140,100,30);
 		
 		c.add(lDataInicio);
 		c.add(tDataInicio);
 		c.add(lDataFinal);
 		c.add(tDataFim);
-		c.add(lIdUsuario);
-		c.add(tIdUsuario);
 		c.add(bBuscar);
 		c.add(bLimpar);
 		
@@ -73,17 +69,15 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 //			f.setIdFornecedor(tCodFornecedor.getText());
 //			f.setNomeFornecedor(tNomeFornecedor.getText());
 //			f.setCnpjFornecedor(tCnpj.getText());
-//			
+			DateGroup dateGroup = new DateGroup(LocalDate.parse(tDataInicio.getText()), LocalDate.parse(tDataFim.getText()));
 			tDataInicio.setText("");
 			tDataFim.setText("");
-			tIdUsuario.setText("");
 			
 //			Banco.inserirFornecedor(f);
 		}
 		else if(e.getSource() == bLimpar){
 			tDataInicio.setText("");
 			tDataFim.setText("");
-			tIdUsuario.setText("");
 		}
 		
 	}

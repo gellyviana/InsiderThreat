@@ -1,6 +1,7 @@
 package br.imd.tree;
 
 import br.imd.factory.Activity;
+import br.imd.factory.Device;
 import br.imd.factory.Http;
 import br.imd.factory.Logon;
 import br.imd.factory.User;
@@ -52,7 +53,7 @@ public class Tree {
 		if(activity instanceof Http){
 			UrlValue url = new UrlValue(activity);
 			if(!root.analizerLevel(url)){
-				root.insertChildren(url);
+				existUrl(url);
 				return true;
 			}
 		}else if(activity instanceof Logon){
@@ -61,10 +62,10 @@ public class Tree {
 				root.insertChildren(activityLogon);
 				return true;
 			}
-		}else{
+		}else if (activity instanceof Device){
 			ActivityValue activityDevice = new ActivityValue(activity);
 			if(!root.analizerLevel(activityDevice)){
-				root.insertChildren(activityDevice);
+				activityAnalizer(activityDevice);
 				return true;
 			}
 		}
@@ -105,12 +106,10 @@ public class Tree {
 			root.setLevel(2);
 		}
 	}
-	 
-
+	
 	// esse metodo deve analizar a activity para saber se ela esta no array
 	// filho, se tiver tem que incrementar, senao tem que adicionar
-	
-	public void activityAnalizer(Value activity) {
+	public void activityAnalizer(Value activity){
 		if(!root.analizerLevel(activity)){
 			root.insertChildren(activity);
 			root.setLevel(3);

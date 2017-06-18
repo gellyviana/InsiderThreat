@@ -24,14 +24,14 @@ public class Main {
 //	    DateGroup date = new DateGroup(LocalDate.parse("2012-05-01"), LocalDate.parse("2012-05-01"));
 //		ArrayList<Tree> forest = maneger.getForest();
 		
-		maneger.readActivity("device.csv");
+//		maneger.readActivity("device.csv");
 		
-		maneger.readActivity("logon-sumarizado.csv");
+		//maneger.readActivity("logon-sumarizado.csv");
 		
-		maneger.readActivity("http-sumarizado.csv");
-	
-//		MainView v = new MainView();
-//		v.setVisible(true);
+		//maneger.readActivity("http-sumarizado.csv");
+//		maneger.getForest();
+		MainView v = new MainView();
+		v.setVisible(true);
 //		
 		//LocalDate date = LocalDate.parse("2012-05-01");
 		
@@ -42,10 +42,13 @@ public class Main {
 //		String [] line4 = {"M0F6-O2FY64UM-9526UMPP","01/04/2010 08:29:40", "DTAA/RQH0770","PC-4225", "Connect"};
 //		String [] line5 = {"Miguel", "145", "miguel@outlook.com", "ufrn", "wherever"};
 //		String [] line6 = {"H9W1-X0MC70BT-6065RPAT","01/04/2010 01:28:34", "DTAA/KEE0997","PC-2670", "Logon"};
+//		//String [] line7 = {"Miguel", "145", "miguel@outlook.com", "ufrn", "wherever"};
+//		String [] line8 = {"H9W1-X0MC70BT-6065RPAT","01/04/2010 01:28:34", "DTAA/KEE0997","PC-2670", "Desconnect"};
 //			
 //		Activity activity1 = new Http(line2);
 //		Activity activity2 = new Device(line4);
 //		Activity activity3 = new Logon(line6);
+//		Activity activity4 = new Logon(line8);
 //		
 //		User u1 = new User(line1);
 //		User u2 = new User(line3);
@@ -56,6 +59,7 @@ public class Main {
 //		t1.insert(activity1);
 //		t2.insert(activity2);
 //		t3.insert(activity3);
+//		t3.insert(activity4);
 //		t1.printTree();
 //		t2.printTree();
 //		t3.printTree();
