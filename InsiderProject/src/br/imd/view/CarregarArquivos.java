@@ -4,6 +4,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
@@ -52,8 +53,6 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		c.add(bBuscar);
 		c.add(bLimpar);
 		
-		
-		
 		bBuscar.addActionListener(this);
 		bLimpar.addActionListener(this);
 		
@@ -64,18 +63,18 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == bBuscar){
-//			CarregarArquivos f = new CarregarArquivos();
-//			f.setIdFornecedor(tCodFornecedor.getText());
-//			f.setNomeFornecedor(tNomeFornecedor.getText());
-//			f.setCnpjFornecedor(tCnpj.getText());
-			DateGroup dateGroup = new DateGroup(LocalDate.parse(tDataInicio.getText()), LocalDate.parse(tDataFim.getText()));
+		if(e.getActionCommand().equals(bBuscar)){
+			String dataInicio = tDataInicio.getText();
+			System.out.println(dataInicio);
+			String dataFim = tDataFim.getText();
+			DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+			LocalDate inicio = LocalDate.parse(dataInicio, d);
+			LocalDate fim = LocalDate.parse(dataFim,d);
+			DateGroup dateGroup = new DateGroup(inicio,fim);
 			tDataInicio.setText("");
 			tDataFim.setText("");
-			
-//			Banco.inserirFornecedor(f);
 		}
-		else if(e.getSource() == bLimpar){
+		else if(e.getActionCommand().equals(bLimpar)){
 			tDataInicio.setText("");
 			tDataFim.setText("");
 		}

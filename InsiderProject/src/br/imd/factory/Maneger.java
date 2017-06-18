@@ -1,5 +1,6 @@
 package br.imd.factory;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 //import java.util.Iterator;
@@ -138,8 +139,11 @@ public class Maneger {
 		tree = new Tree(user);
 		forest.add(tree);
 	}
-	public void activityTree(){
-		//
+	public void activityTree(LocalDate localDateF, LocalDate localDateI){
+		//Tenho que analisar o arrayList de atividade 
+		if(localDateF == null){
+			//tree.dateAnalizer(localDateI);
+		}
 	}
 	
 	/**
