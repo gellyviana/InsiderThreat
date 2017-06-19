@@ -11,6 +11,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import br.imd.factory.Maneger;
 import br.imd.tree.DateGroup;
 
 public class CarregarArquivos extends JInternalFrame implements ActionListener {
@@ -66,13 +67,9 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		if(e.getActionCommand().equals(bBuscar)){
 			tDataInicio.setText("");
 			tDataFim.setText("");
-			//Tem que colocar as duas datas no construtor de DateGroup
-			//String dataInicio = tDataInicio.getText();
-			//String dataFim = tDataFim.getText();
-			//DateTimeFormatter d = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-			//LocalDate inicio = LocalDate.parse(dataInicio, d);
-			//LocalDate fim = LocalDate.parse(dataFim,d);
-			//DateGroup dateGroup = new DateGroup(inicio,fim);
+			Maneger maneger = new Maneger();
+			maneger.readUser("ldap.csv", tDataInicio.getText(), tDataFim.getText());
+			
 			
 		}
 		else if(e.getActionCommand().equals(bLimpar)){

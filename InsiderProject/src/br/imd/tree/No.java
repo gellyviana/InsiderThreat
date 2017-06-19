@@ -1,5 +1,6 @@
 package br.imd.tree;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 //import java.util.ArrayList;
@@ -15,28 +16,15 @@ import br.imd.tree.Value;
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.14
  */
-public class No {
-		
+public class No {	
 	//O valor que vai conter no No.
 	private Value value;
-	private ArrayList<Value> children;
+	private ArrayList<No> children;
 	//O Array de inteiros que contem o histograma.
 	private int[] histogram;
 	//Inteiro que representa o nivel do No na arvore.
 	private int level;
-
-	/**
-	 * Construtor que gera a raiz arvore, que e do 
-	 * tipo usuario. 
-	 * @param user Um usuario.
-	 */
-	public No(User user) {
-		this.value = user;
-    	this.children = new ArrayList<Value>(); 
-    	this.histogram = new int[24];
-    	this.level = 0;
-    	//this.consultChildren(value);
-	}
+	
 	
 	/**
 	 * Construtor que gera os demais Nos da arvore, que sao do 
@@ -45,9 +33,9 @@ public class No {
 	 */
 	public No(Value value) {
     	this.value = value;
-    	this.children = new ArrayList<Value>(); 
+    	this.children = new ArrayList<No>(); 
     	this.histogram = new int[24];
-    	this.level ++;
+    	this.level = 0;
     }
     
 	/**
@@ -65,6 +53,7 @@ public class No {
 	 public void setValue(Value value) {
 	        this.value = value;
 	 }
+	 /*
 	 public boolean analizerLevel(Value value){
 		 if(value instanceof DateGroup){
 			 for(Value v : children){
@@ -92,29 +81,29 @@ public class No {
 			 }
 		 }
 		 return false;
-	 }
-    public boolean consultChildren(Value value){
+	 }*/
+    public No consultChildren(Value value){
         	
-    	for(Value v: children){
-    		if(value == v){
-    			return true;
+    	for(No v: children){
+    		if(v.getValue().equals(value)){
+    			return v;
     		}
     	} 
-    	return false;
+    	return null;
     }
     
-    public void insertChildren(Value value){
-    	if(children.isEmpty()){
-    		children.add(value);
-    		
-    	}else if(consultChildren(value)){
-        		//pega a hora da atividade para passar como parametro no setHistogram 
-        		setHistogram(1);
-    	}else{
-    		children.add(value);
+    public No  insertChildren(Value value){
+//    	if(consultChildren(value) != null){
+//        		//pega a hora da atividade para passar como parametro no setHistogram 
+//        		setHistogram(1);
+//        		
+//    	}else{
+    		No no = new No(value);
+    		children.add(no);
     		//precisa da hora da atividade para setHistogram
     		setHistogram(1);
-    	}
+    		return no;
+    	//}
     }
 	 
 	/**
@@ -141,7 +130,13 @@ public class No {
     public void setLevel(int level){
     	this.level = level;
     }
-    
+    /**
+     * Metodo que retona um array de No.
+     * @return Array de No
+     */
+    public ArrayList<No> getChildren(){
+    	return children;
+    }
     /**
      * Metodo que incrementa o histograma na posicao que se
      * encontra a hora que ocorreu a atividade.

@@ -18,4 +18,10 @@ public class ActivityValue extends Value{
 	public String getActivity(){
 		return this.activity;
 	}
+	public boolean equals(Object o){
+		if(o instanceof ActivityValue){
+			return activity.equals(((ActivityValue)o).getActivity());
+		}
+		return false;
+	}
 }

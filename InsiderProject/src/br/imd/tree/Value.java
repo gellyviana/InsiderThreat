@@ -1,11 +1,5 @@
 package br.imd.tree;
 
-import java.time.LocalDate;
-//import java.util.ArrayList;
-
-import br.imd.factory.Activity;
-import br.imd.factory.User;
-
 /**
  * Classe criada para um tipo unico que sera
  * utilizado na geracao do No da arvore. Esse 

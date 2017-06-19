@@ -1,5 +1,7 @@
 package br.imd.tree;
 
+import java.time.LocalDate;
+
 import br.imd.factory.Activity;
 import br.imd.factory.Device;
 import br.imd.factory.Http;
@@ -18,14 +20,20 @@ public class Tree {
 	//O No raiz da arvore.
 	private No root;
 
+
 	/**
 	 * Construtor que gera o no raiz da arvore, 
 	 * e a imprime. 
 	 * @param user Um usuario.
 	 */
-	public Tree(User user) {
+	public Tree(User user, String dateBegin, String dateEnd ) {
 		this.root = new No(user);
-		//this.printTree();
+		DateGroup dateLeft = new DateGroup(null, dateBegin);
+		DateGroup dateMid = new DateGroup(dateBegin, dateEnd);
+		DateGroup dateRight = new DateGroup(dateEnd, null);
+		root.insertChildren(dateRight);
+		root.insertChildren(dateMid);
+		root.insertChildren(dateLeft);
 	}
 	
 	/**
@@ -50,25 +58,33 @@ public class Tree {
 	 * @param Activity
 	 */
 	public boolean insert(Activity activity){
-		if(activity instanceof Http){
-			UrlValue url = new UrlValue(activity);
-			if(!root.analizerLevel(url)){
-				existUrl(url);
-				return true;
-			}
-		}else if(activity instanceof Logon){
-			ActivityValue activityLogon = new ActivityValue(activity);
-			if(!root.analizerLevel(activityLogon)){
-				activityAnalizer(activityLogon);
-				return true;
-			}
-		}else if (activity instanceof Device){
-			ActivityValue activityDevice = new ActivityValue(activity);
-			if(!root.analizerLevel(activityDevice)){
-				activityAnalizer(activityDevice);
-				return true;
+		No dad = null;
+		No child = null;
+		for (No no : root.getChildren()){
+			if(((DateGroup) no.getValue()).isInGroup(activity.getDate())){
+				dad = no;
+				break;
 			}
 		}
+		child = dad.consultChildren(new Equipament(activity));
+		if(child == null ){
+			child = dad.insertChildren(new Equipament(activity));
+		}
+		dad = child;
+
+		child = dad.consultChildren(new ActivityValue(activity));
+		if(child == null ){
+			child = dad.insertChildren(new ActivityValue(activity));
+		}
+		
+		dad = child;
+
+		child = dad.consultChildren(new UrlValue(activity));
+		if(child == null ){
+			child = dad.insertChildren(new UrlValue(activity));
+		}
+		
+		
 		return false;
 	}
 	/**
@@ -88,44 +104,44 @@ public class Tree {
 //	}
 
 
-	// todos esses metodos tem que vim do mesmo usuario
-	// esse metodo deve analizar a data para saber se ela esta no array filho,
-	// se tiver tem que incrementar, senao tem que adicionar
-	public void dateAnalizer(Value date){
-		if(!root.analizerLevel(date)){
-			root.setValue(date);
-			root.setLevel(1);
-		}
-	}
-
-	// esse metodo deve analizar a equipament para saber se ela esta no array
-	// filho, se tiver tem que incrementar, senao tem que adicionar
-	public void equipamentAnalizer(Value equipament){ 
-		if(!root.analizerLevel(equipament)){
-			root.insertChildren(equipament);
-			root.setLevel(2);
-		}
-	}
-	
-	// esse metodo deve analizar a activity para saber se ela esta no array
-	// filho, se tiver tem que incrementar, senao tem que adicionar
-	public void activityAnalizer(Value activity){
-		if(!root.analizerLevel(activity)){
-			root.insertChildren(activity);
-			root.setLevel(3);
-		}
-			
-	}
-
-
-	// esse metodo deve analizar a data para saber se ela esta no array filho,
-	// se tiver tem que incrementar, senao tem que adicionar
-	public void existUrl(Value url) {
-		if(!root.analizerLevel(url)){
-			root.insertChildren(url);
-			root.setLevel(4);
-		}
-	}
+//	// todos esses metodos tem que vim do mesmo usuario
+//	// esse metodo deve analizar a data para saber se ela esta no array filho,
+//	// se tiver tem que incrementar, senao tem que adicionar
+//	public void dateAnalizer(Value date){
+//		if(!root.analizerLevel(date)){
+//			root.setValue(date);
+//			root.setLevel(1);
+//		}
+//	}
+//
+//	// esse metodo deve analizar a equipament para saber se ela esta no array
+//	// filho, se tiver tem que incrementar, senao tem que adicionar
+//	public void equipamentAnalizer(Value equipament){ 
+//		if(!root.analizerLevel(equipament)){
+//			root.insertChildren(equipament);
+//			root.setLevel(2);
+//		}
+//	}
+//	
+//	// esse metodo deve analizar a activity para saber se ela esta no array
+//	// filho, se tiver tem que incrementar, senao tem que adicionar
+//	public void activityAnalizer(Value activity){
+//		if(!root.analizerLevel(activity)){
+//			root.insertChildren(activity);
+//			root.setLevel(3);
+//		}
+//			
+//	}
+//
+//
+//	// esse metodo deve analizar a data para saber se ela esta no array filho,
+//	// se tiver tem que incrementar, senao tem que adicionar
+//	public void existUrl(Value url) {
+//		if(!root.analizerLevel(url)){
+//			root.insertChildren(url);
+//			root.setLevel(4);
+//		}
+//	}
 
 	public void printTree() {
 		System.out.println(root.getValue());

@@ -15,4 +15,10 @@ public class UrlValue extends Value{
 	public String getUrlValue(){
 		return this.urlValue;
 	}
+	public boolean equals(Object o){
+		if(o instanceof UrlValue){
+			return urlValue.equals(((UrlValue)o).getUrlValue());
+		}
+		return false;
+	}
 }

@@ -12,4 +12,10 @@ public class Equipament extends Value{
 	public String getEquipament(){
 		return this.equipament;
 	}
+	public boolean equals(Object o){
+		if(o instanceof Equipament){
+			return equipament.equals(((Equipament)o).getEquipament());
+		}
+		return false;
+	}
 }

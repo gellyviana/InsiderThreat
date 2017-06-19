@@ -29,9 +29,6 @@ public class Maneger {
 	private ArrayList<Activity> activityList;
 	//Local onde vai ser acumulado as arvores geradas
 	private ArrayList<Tree> forest;
-	
-	private ArrayList<LocalDate> intervalo;
-	
 	private Tree tree;
 	
 	/**
@@ -43,7 +40,6 @@ public class Maneger {
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
 		forest = new ArrayList<Tree>();
-		intervalo = new ArrayList<LocalDate>();
 	}
 		
 	/**
@@ -55,7 +51,36 @@ public class Maneger {
 	 * de arvores o usuario inicializando a arvore.
 	 * @param filename O nome do arquivo lido
 	 */
-	public void createObject(String filename){
+	public void readUser(String filename, String dateBegin, String dateEnd){
+		LogfileReader fileReader = new LogfileReader(filename);
+		LogEntry aux = new LogEntry();
+		aux =fileReader.nextEntry(); 
+		if(!aux.getField1().equals("id")){
+			while (fileReader.hasMoreEntries()){
+				aux = fileReader.nextEntry();
+				String[] s1 = aux.getFields();
+				User user = GenerateObjectUser.createUser(s1);
+				userList.add(user);
+				treeBegin(user,dateBegin,dateEnd);
+			}
+		}
+	}
+	
+	/**
+	 * Metodo para leitura do arquivo criando
+	 * que ira resultar no usuario.
+	 * @param filename Uma string com o nome do arquivo
+	 */
+//	public void readUser(String filename){
+//		createObject(filename);	
+//	}
+	
+	/**
+	 * Metodo para leitura do arquivo criando
+	 * que ira resultar numa atividade.
+	 * @param filename
+	 */
+	public void readActivity(String filename){
 		LogfileReader fileReader = new LogfileReader(filename);
 		LogEntry aux = new LogEntry();
 		aux =fileReader.nextEntry();
@@ -67,33 +92,7 @@ public class Maneger {
 				activityList.add(activity);
 				//tree.insert(activity);
 			}
-		} else{
-			while (fileReader.hasMoreEntries()){
-				aux = fileReader.nextEntry();
-				String[] s1 = aux.getFields();
-				User user = GenerateObjectUser.createUser(s1);
-				userList.add(user);
-				treeBegin(user);
-			}		
 		}
-	}
-	
-	/**
-	 * Metodo para leitura do arquivo criando
-	 * que ira resultar no usuario.
-	 * @param filename Uma string com o nome do arquivo
-	 */
-	public void readUser(String filename){
-		createObject(filename);	
-	}
-	
-	/**
-	 * Metodo para leitura do arquivo criando
-	 * que ira resultar numa atividade.
-	 * @param filename
-	 */
-	public void readActivity(String filename){
-		createObject(filename);
 	}
 	
 	/**
@@ -140,40 +139,40 @@ public class Maneger {
 	 * Metodo que incializa a arvore do usuario
 	 * e adiciona na floresta
 	 */
-	public void treeBegin(User user){
-		tree = new Tree(user);
+	public void treeBegin(User user, String dateBegin, String dateEnd){
+		tree = new Tree(user, dateBegin, dateEnd);
 		forest.add(tree);
 	}
-	public void activityTree(Value localDateF, Value localDateI){	
-		for(Activity a : activityList){
-			//Se a data final for igual a nulo
-			if(localDateF == null){
-				//Se a data inicial for igual a data de alguma atividade de dentro do arrayList
-				if(localDateI.equals(a.getDate())){
-					//Percorro na floresta de arvores 
-					for(Tree tree : forest){
-						//Compara se a data da atividade ja existe no arrayList de NO
-						if(tree.getRoot().getValue().equals(a.getDate())){
-							tree.dateAnalizer(localDateI);
-						}
-					}
-				}
-			//Se a data inicial for igual a nulo
-			}else if(localDateI == null){
-				//Se a data final for igual a data de alguma atividade de dentro do arrayList
-				if(localDateF.equals(a.getDate())){
-					//Percorro na floresta de arvores 
-					for(Tree tree : forest){
-						//Compara se a data da atividade ja existe no arrayList de NO 
-						if(tree.getRoot().getValue().equals(a.getDate())){
-							tree.dateAnalizer(localDateF);
-						}
-					}
-				}
-			}
-		}
-	}
-	
+//	public void activityTree(Value localDateF, Value localDateI){	
+//		for(Activity a : activityList){
+//			//Se a data final for igual a nulo
+//			if(localDateF == null){
+//				//Se a data inicial for igual a data de alguma atividade de dentro do arrayList
+//				if(localDateI.equals(a.getDate())){
+//					//Percorro na floresta de arvores 
+//					for(Tree tree : forest){
+//						//Compara se a data da atividade ja existe no arrayList de NO
+//						if(tree.getRoot().getValue().equals(a.getDate())){
+//							tree.dateAnalizer(localDateI);
+//						}
+//					}
+//				}
+//			//Se a data inicial for igual a nulo
+//			}else if(localDateI == null){
+//				//Se a data final for igual a data de alguma atividade de dentro do arrayList
+//				if(localDateF.equals(a.getDate())){
+//					//Percorro na floresta de arvores 
+//					for(Tree tree : forest){
+//						//Compara se a data da atividade ja existe no arrayList de NO 
+//						if(tree.getRoot().getValue().equals(a.getDate())){
+//							tree.dateAnalizer(localDateF);
+//						}
+//					}
+//				}
+//			}
+//		}
+//	}
+//	
 	/**
 	 * Metodo que retorna a floresta composta 
 	 * por arvores de usuarios
