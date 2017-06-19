@@ -1,0 +1,102 @@
+
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{graphicx,url}
+
+%\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+
+     
+\sloppy
+
+\title{InsiderThreat\\ Linguagem de Programação II.}
+
+\author{Adriana Virginia M. de Azevedo\inst{1}, Gelly V. Mota\inst{1}}
+
+
+\address{Discentes do Instituto Metrópole Digital -- Universidade Federal do Rio Grande do Norte
+  \email{dricavma@hotmail.com ,gellyviana@outlook.com}
+}
+
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+  This report describes the implementation of a project for anomalous internal user 	  detection, {\bf Insider Threat}\rm, describing step by step the creation process.
+  
+\end{abstract}
+     
+\begin{resumo} 
+  Este relatório descreve a implementação de um projeto para detecção de usuário interno  anômalo, Insider Threat,descrevendo passo a passo o processo de criação.
+\end{resumo}
+
+
+\section{Informações Gerais}
+
+No mundo corporativo a segurança é fator primordial, sendo necessário manté-la em constante vigilância. Atualmente as ameaças internas nas empresas e órgãos governamentais representam uma grande preocupação.  Diversas  empresas não relatam tais ameaças para evitar uma perda de credibilidade, porém cada vez mais tal fato ocorre. Funcionários e prestadores de serviço muitas vezes têm acessos direto a documentação sigilosa, de algum valor financeiro ou confidencial, e quando é percebida a invasão já ocorreu, algumas vezes  maliciosamente ou acidental. 
+
+Tais ameaças ocorrem com mais frequência, segundo Legg e é necessário desenvolver mecanismos de monitoramentos e alertas para detectá-las a tempo de evitar prejuízos.  Alguns projetos têm sido desenvolvidos buscando detectar essas ameaças e tentar eliminá-las antes que causem prejuízos, que podem ser tanto de natureza financeira como de segurança.
+
+Visando à detecção dessas ameaças foi desenvolvido esse projeto que consiste na criação de uma  estrutura de dados que contenha as informações do usuário, seus dados e suas atividades na organização. 
+
+Implementado na linguagem Java 8.0 utilizando Programação Orientada à Objeto. A estrutura de dados escolhida para desenvolvimento foi uma árvore \textbf{n-ária}, gerada a partir de um grupo de informações retiradas de arquivos de logs de uma empresa. Essa árvore contém as informações do usuário e seu comportamento, ajudando assim a formar um perfil que pode permitir detectar anomalia na atitude dos usuários. Como suporte para o desenvolvido foi utilizado alguns artigos de um projeto desenvolvido na Inglaterra,.que apresentam uma solução para ameaças internas utilizando criação de árvores com o perfil dos usuários.
+
+O projeto foi desenvolvido em etapas, sendo a primeira de leitura de arquivos de log, a segunda criação de objetos do tipo usuário  e atividade, e última etapa na criação de uma árvore para cada usuário. Foi gera um Histograma em cada nó da árvore do usuário, exceto o nível zero, que contém as informações do usuário, que vai demonstrar seus  comportamentos, com datas de acessos, equipamento entre outros. Foi desenvolvido uma interface gráfica para interagir solicitando as datas e inicial e final que será analizadas e armazenadas com as informações do usuário.
+
+Na conclusão do projeto buscamos ter um floresta de usuários que podem auxiliar a criação de um perfil do empregado e as árvores de usuários serve de auxílio para acompanhar o comportamento do  funcionário.
+
+\section{Leitura de Arquivo} \label{sec:firstpage}
+
+As informações dos usuários da organização e as atividades por eles desenvolvidas encontram-se em arquivos de logs csv que são fornecidos pela empresa. O arquivo que contém os dados  dos usuários cadastrado, com o nome, a identificação do usuário (Id), o domínio de trabalho, e-mail e a função é lido e as informações são lidas linha a linha e armazenadas em vetores de String. Já os arquivos de log constam do identificação (IP da atividade), a data e hora que ocorreu a atividade, o domínio e a identificação do usuário, o equipamento que estava conectado e qual foi atividade realizada também são lidas e armazenadas. 
+O sistema de leitura de arquivo foi desenvolvido baseado no modelo do capítulo 4 do livro Programação orientada a objetos com Java, ref 2 no projeto weblog-analyzer (capítulo 4)
+ * Livro Programação orientada a objetos com JAVA 
+ * David J. Barnes and Michael Kolling (versão 2008.03.30) 
+e consiste na criação de um Token que cria um padrão para receber as linha lidas, o arquivo é aberto, e lido linha a linha. Durante a leitura da linha é chamado um método que verifica que tipo de arquivo está sendo lido e aloca as informações no padrão definido dentro de um ArrayList.
+
+\section{Criação do Objeto}
+
+Durante o processo de leitura foi definido que tipo de arquivo está sendo lido, com essa informação são criados dois ArrayList, um de usuários e outro de atividades. Se o arquivo que está sendo lido é o “ldap.csv” é criado um objeto do tipo User e armazenado no ArrayList de usuários, que vai conter todos os funcionários cadastrados. Quando os outros arquivos de logs são lidos é criado um objeto do tipo da atividade, Device e Http. Após a criação do objeto ele é armazenado no ArryList de atividades.
+
+Para a criação do objeto foi desenvolvido uma classe abstrata GenerateObject, que funciona como uma fábrica para geração desses objetos. As classes GenerateObjectUser e GenerateObjectActivity herdam da classe pai (GenerateObjetc) e instanciam objetos do tipos User ou Activity.
+
+A classe Activity foi criada do tipo abstrata para permitir que sejam instanciados três tipos de objetos do tipo Activity, o Device, o Logon e o Http.
+
+\section{Criação das árvores de usuários}
+
+A criação das árvores de usuários ocorrem na manipulação dos dois ArrayList, de usuários e atividades. Quando essas árvores são criadas, adiciona-se em um ArrayList do tipo Tree, que vai conter as árvores de todos os usuários cadastrados.
+
+Para isso foram criadas as classes Value, No e Tree. A classe Value é do tipo abstrata e nos auxilia a instanciar os objetos que podem estar nos nós da árvore, esses objetos podem ser do tipo usuários (UserValue), data (DateGroup), equipamento (Equipament), atividade (ActivityValue) e a url acessada durante a navegação pela internet (UrlValue). 
+A classe UserValue foi gerada com duas informações do objeto User, a identificação (IdUser) e o nome do usuário (name).
+A classe DataGroup foi gerada com vetor de data, que pode conter uma única data ou um período (DateGroup[]), a hora em que ocorreu a atividade (time) e o usuário que a realizou (user).
+A classe No representa um nó da árvore, vai conter a informação do tipo Value, um ArrayList com os filhos do nó, um histograma e o nível em que o nó se localiza na árvore.  
+Na classe Tree temos um atributo que é o nó raiz do tipo No, e após gerar a raiz da árvores através do objeto do tipo User que se encontra do ArrayList de User podemos inicializar a árvore e ir adicionado seus filhos.
+
+Nossa árvore foi desenvolvida para ter quatro níveis, o primeiro deles que é a raiz,  contém o usuário (nível 0), já o segundo é um agrupamento de datas, podendo ser também uma data única (nível 1), no terceiro encontram-se todos os equipamentos que o usuário utilizou em um período de date específico (nível 2) e no último, que é o quarto, estão as atividades realizadas pelo usuário (nível 3).
+
+Foi desenvolvida uma interface gráfica, utilizando as classes MainView, FileTree, CarregarArquivo e HelpUser.
+
+\section{Conclusão}\label{sec:figs}
+
+
+Não foi possível alcançar todos os objetivos na implementação do projeto. A análise do perfil do usuário não foi implementada, nem a interface que apresenta a árvore. 
+A complexidade do implementação está na ordem de $O(n^2)$ e muito lenta, precisa-se fazer uma revisão do código a fim de obter uma implementação mais eficiente.
+
+\section{Referências}
+\begin{flushleft}
+P. A. Legg, O. Buckley, M. Goldsmith, and S. Creese, "Caught in the act of an insider attack: detection and assessment of insider threat", in 2015 IEEE International Symposium on Technologies for Homeland Security (HST), April 2015, pp. 1-6. 
+\end{flushleft}
+
+\begin{flushleft}
+P. A. Legg, O. Buckley, M. Goldsmith, and S. Creese, "Automated insider threat detection system using user and role-based profile assessment", IEEE System Journal, no. 99, pp. 1-10, 2015. 
+\end{flushleft}
+
+\begin{flushleft}
+C. E. da Silva, J. D. S. da Silva, C. Paterson, and R. Calinescu, "Self-adaptive role-based access control for business processes", in The 12th International Symposium on Software Engineering for Adaptive and Self-Managing System, 2017. 
+\end{flushleft}
+
+\end{document}
+
