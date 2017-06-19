@@ -1,16 +1,10 @@
 package br.imd.factory;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-
-//import java.util.Iterator;
-
 import br.imd.read.LogEntry;
 import br.imd.read.LogfileReader;
-//import br.imd.tree.No;
 import br.imd.tree.Tree;
-import br.imd.tree.Value;
-//import br.imd.tree.Value;
+
 
 /**
  * Classe criada para gerar os ArrayList de 
@@ -43,13 +37,13 @@ public class Maneger {
 	}
 		
 	/**
-	 * Metodo de criacao do objeto, que pode ser um
-	 * usuario ou atividade. No momento da criaçao
-	 * ja e adicionado o objeto no seu ArrayList 
-	 * correspondente. Apos a criacao do objeto do
-	 * tipo usuario ja e adicionado no ArrayList
-	 * de arvores o usuario inicializando a arvore.
+	 * Metodo de criacao do objeto, que apos a
+	 * criacao do objeto do tipo usuario ja e
+	 * adicionado no ArrayList de arvores o 
+	 * usuario inicializando a arvore.
 	 * @param filename O nome do arquivo lido
+	 * @param String da data inicio
+	 * @param String da data fim.
 	 */
 	public void readUser(String filename, String dateBegin, String dateEnd){
 		LogfileReader fileReader = new LogfileReader(filename);
@@ -61,7 +55,6 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				User user = GenerateObjectUser.createUser(s1);
 				userList.add(user);
-				System.out.println("Creando arbol");
 				treeBegin(user,dateBegin,dateEnd);
 			}
 		}
@@ -78,8 +71,8 @@ public class Maneger {
 	
 	/**
 	 * Metodo para leitura do arquivo criando
-	 * que ira resultar numa atividade.
-	 * @param filename
+	 * que ira resultar numa lista de atividades.
+	 * @param String filename nome do arquivo. 
 	 */
 	public void readActivity(String filename){
 		LogfileReader fileReader = new LogfileReader(filename);
@@ -91,7 +84,6 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				Activity activity = GenerateObjectActivity.createActivity(s1);
 				activityList.add(activity);
-				//tree.insert(activity);
 			}
 		}
 	}
@@ -139,41 +131,15 @@ public class Maneger {
 	/**
 	 * Metodo que incializa a arvore do usuario
 	 * e adiciona na floresta
+	 * @param User é um usúario
+	 * @param String data inicio 
+	 * @param String data fim
 	 */
 	public void treeBegin(User user, String dateBegin, String dateEnd){
 		tree = new Tree(user, dateBegin, dateEnd);
 		forest.add(tree);
 	}
-//	public void activityTree(Value localDateF, Value localDateI){	
-//		for(Activity a : activityList){
-//			//Se a data final for igual a nulo
-//			if(localDateF == null){
-//				//Se a data inicial for igual a data de alguma atividade de dentro do arrayList
-//				if(localDateI.equals(a.getDate())){
-//					//Percorro na floresta de arvores 
-//					for(Tree tree : forest){
-//						//Compara se a data da atividade ja existe no arrayList de NO
-//						if(tree.getRoot().getValue().equals(a.getDate())){
-//							tree.dateAnalizer(localDateI);
-//						}
-//					}
-//				}
-//			//Se a data inicial for igual a nulo
-//			}else if(localDateI == null){
-//				//Se a data final for igual a data de alguma atividade de dentro do arrayList
-//				if(localDateF.equals(a.getDate())){
-//					//Percorro na floresta de arvores 
-//					for(Tree tree : forest){
-//						//Compara se a data da atividade ja existe no arrayList de NO 
-//						if(tree.getRoot().getValue().equals(a.getDate())){
-//							tree.dateAnalizer(localDateF);
-//						}
-//					}
-//				}
-//			}
-//		}
-//	}
-//	
+
 	/**
 	 * Metodo que retorna a floresta composta 
 	 * por arvores de usuarios

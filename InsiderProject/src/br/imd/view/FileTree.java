@@ -1,15 +1,11 @@
 package br.imd.view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.Collections;
 import java.util.Vector;
 
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
@@ -18,10 +14,13 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- * Display a file system in a JTree view
  * 
- * @version $Id: FileTree.java,v 1.9 2004/02/23 03:39:22 ian Exp $
- * @author Ian Darwin
+ *Classe que geraria a interface da arvore do usuario para visualizar e manusear no
+ * sistema.
+ * Baseado no projeto Java2s.com
+ * @link http://www.java2s.com/Tutorials/Java/Swing_How_to/JFileChooser/Make_JFileChooser_to_save_file.html
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.04
  */
 public class FileTree extends JPanel {
   /** Construct a FileTree */

@@ -26,13 +26,12 @@ import br.imd.exception.NullWayException;
  * @author Adriana Azevedo e Gelly Viana
  * @version 2017.06.04
  */
-public class MainView extends JFrame implements ActionListener {
-
-	
+public class MainView extends JFrame implements ActionListener {	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	JDesktopPane dtp;
 	JMenuBar mnbar;
 	JMenu fileLogs;
@@ -46,6 +45,7 @@ public class MainView extends JFrame implements ActionListener {
 	JButton save;
 
 	public MainView() {
+		
 		dtp = new JDesktopPane();
 		mnbar = new JMenuBar();
 		fileLogs = new JMenu("Arquivos");
@@ -95,9 +95,7 @@ public class MainView extends JFrame implements ActionListener {
 			CarregarArquivos carregar = new CarregarArquivos("Seleção por Data");
 			dtp.add(carregar);
 			carregar.setVisible(true);
-		}else{
-			
-		}	
+		}
 	}
 
 	private void openTree() throws NullWayException {

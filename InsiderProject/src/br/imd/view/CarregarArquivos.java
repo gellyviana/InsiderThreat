@@ -3,8 +3,6 @@ package br.imd.view;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
@@ -12,8 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import br.imd.factory.Maneger;
-import br.imd.tree.DateGroup;
 
+/**
+ * Classe reponsável em colocar para leitura os arquivos e 
+ * carregar nas arvores.
+ * @author Adriana Azevedo e Gelly Viana
+ *
+ */
 public class CarregarArquivos extends JInternalFrame {
 
 	/**
@@ -53,17 +56,22 @@ public class CarregarArquivos extends JInternalFrame {
 		c.add(tDataFim);
 		c.add(bBuscar);
 		c.add(bLimpar);
-		
+		//Botão que gera o evento de carregar os arquivos.
 		bBuscar.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e) {
             	
     			Maneger maneger = new Maneger();
     			maneger.readUser("ldap.csv", tDataInicio.getText(), tDataFim.getText());
+    			maneger.readActivity("device.csv");
+    			maneger.readActivity("logon-sumarizado.csv");
+    			maneger.readActivity("http-sumarizado.csv");
+    			
     			tDataInicio.setText("");
     			tDataFim.setText("");
             }});
 		
+		//Botão que limpar os campos de datas.
 		bLimpar.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e) {

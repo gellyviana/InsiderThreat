@@ -1,11 +1,6 @@
 package br.imd.tree;
 
-import java.time.LocalDate;
-
 import br.imd.factory.Activity;
-import br.imd.factory.Device;
-import br.imd.factory.Http;
-import br.imd.factory.Logon;
 import br.imd.factory.User;
 
 /**
@@ -17,13 +12,13 @@ import br.imd.factory.User;
  */
 public class Tree {
 	
-	//O No raiz da arvore.
+    //O No raiz da arvore.
 	private No root;
 
 
 	/**
 	 * Construtor que gera o no raiz da arvore, 
-	 * e a imprime. 
+	 * e com os três nos filhos. 
 	 * @param user Um usuario.
 	 */
 	public Tree(User user, String dateBegin, String dateEnd ) {
@@ -53,7 +48,8 @@ public class Tree {
 	}
 
 	/**
-	 * Classe que inseri No na arvore
+	 * Classe que inseri  a atividade na  arvore, sempre comparando
+	 * pai com os filhos
 	 * @author Adriana Azevedo e Gelly Viana Mota
 	 * @param Activity
 	 */

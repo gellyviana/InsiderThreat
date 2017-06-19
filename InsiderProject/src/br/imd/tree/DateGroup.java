@@ -17,13 +17,10 @@ import java.time.format.DateTimeFormatter;
 public class DateGroup extends Value {
 	private LocalDate dateEnd;
 	private LocalDate dateBegin;
-	//private LocalDate[] dateGroup;
-	//private LocalTime time;
-	//private String user;
 	/**
 	 * 
-	 * @param dateFim
-	 * @param dateInicio
+	 * @param String dateFim
+	 * @param String dateInicio
 	 */
 	public DateGroup(String date1, String date2){
 		
@@ -39,20 +36,8 @@ public class DateGroup extends Value {
 			dateEnd = null;
 		}
 	}
-	
-//	public void analyzerDate(){
-//		if(dateEnd == null){
-//			//Cria o meu No que é por uma data atual
-//		}else if(dateEnd == dateBegin){
-//			//Cria no No por data especifica
-//		}else if(dateBegin == null){
-//			//Cria pelo um data fim 
-//		}else{
-//			//Cria um intervalo de tempo.
-//		}
-//	}
 	/**
-	 * Método verifica a faixa de intervalo para um No.
+	 * Método verifica a faixa de intervalo de tempo para um No.
 	 * @param localDate
 	 * @return Boolean
 	 */
