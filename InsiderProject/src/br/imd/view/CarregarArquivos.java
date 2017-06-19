@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import br.imd.factory.Maneger;
 import br.imd.tree.DateGroup;
 
-public class CarregarArquivos extends JInternalFrame implements ActionListener {
+public class CarregarArquivos extends JInternalFrame {
 
 	/**
 	 * 
@@ -54,30 +54,24 @@ public class CarregarArquivos extends JInternalFrame implements ActionListener {
 		c.add(bBuscar);
 		c.add(bLimpar);
 		
-		bBuscar.addActionListener(this);
-		bLimpar.addActionListener(this);
+		bBuscar.addActionListener(new ActionListener() {
+ 
+            public void actionPerformed(ActionEvent e) {
+            	
+    			Maneger maneger = new Maneger();
+    			maneger.readUser("ldap.csv", tDataInicio.getText(), tDataFim.getText());
+    			tDataInicio.setText("");
+    			tDataFim.setText("");
+            }});
+		
+		bLimpar.addActionListener(new ActionListener() {
+ 
+            public void actionPerformed(ActionEvent e) {
+            	tDataInicio.setText("");
+    			tDataFim.setText("");
+    		}});
 		
 		setSize(350,230);
 		setTitle(n);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getActionCommand().equals(bBuscar)){
-			tDataInicio.setText("");
-			tDataFim.setText("");
-			Maneger maneger = new Maneger();
-			maneger.readUser("ldap.csv", tDataInicio.getText(), tDataFim.getText());
-			
-			
-		}
-		else if(e.getActionCommand().equals(bLimpar)){
-			tDataInicio.setText("");
-			tDataFim.setText("");
-		}
-		
-	}
-	
-
 }

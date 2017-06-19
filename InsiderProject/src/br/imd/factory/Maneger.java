@@ -61,6 +61,7 @@ public class Maneger {
 				String[] s1 = aux.getFields();
 				User user = GenerateObjectUser.createUser(s1);
 				userList.add(user);
+				System.out.println("Creando arbol");
 				treeBegin(user,dateBegin,dateEnd);
 			}
 		}

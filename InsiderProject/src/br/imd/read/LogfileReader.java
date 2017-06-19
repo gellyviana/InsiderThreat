@@ -41,7 +41,6 @@ public class LogfileReader
      * @param filename O arquivo comos dados do log.
      */
     public LogfileReader(String filename){
-       
     	// O formato da linha do arquivo.
         format = "Field1 Field2 Field3 Field4 Field5";
         // ArrayList que armazenara as linhas do arquivo de log.
@@ -52,7 +51,7 @@ public class LogfileReader
         try{
             // Locate the file with respect to the current environment.
         	//String caminho = "file:///home/gelly/workspace/InsiderThreat/log/";
-        	String caminho = "file:///home/adriana/Documentos/TI/Semestre3/LPII/workspace/InsiderThreat/InsiderProject/logs/";
+        	String caminho = "file:///home/gelly/workspace/InsiderThreat/log/";
             URL fileURL = new URL(caminho + filename);
             
             if(fileURL == null) {
@@ -79,7 +78,7 @@ public class LogfileReader
             dataRead = false;
         } 
         catch(MalformedURLException e){
-        	System.out.println("Deu erro");
+        	System.out.println("Deu erro "+e);
         	dataRead = false;
         }
         // Se nao foi possivel ler o arquivo informa.

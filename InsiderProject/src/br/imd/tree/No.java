@@ -23,7 +23,7 @@ public class No {
 	//O Array de inteiros que contem o histograma.
 	private int[] histogram;
 	//Inteiro que representa o nivel do No na arvore.
-	private int level;
+	private final int level;
 	
 	
 	/**
@@ -31,6 +31,12 @@ public class No {
 	 * tipo valor. 
 	 * @param value, level O valor do No e em qual nivel se encontra.
 	 */
+	public No(Value value, int level) {
+    	this.value = value;
+    	this.children = new ArrayList<No>(); 
+    	this.histogram = new int[24];
+    	this.level = level;
+    }
 	public No(Value value) {
     	this.value = value;
     	this.children = new ArrayList<No>(); 
@@ -92,13 +98,13 @@ public class No {
     	return null;
     }
     
-    public No  insertChildren(Value value){
+    public No insertChildren(Value value){
 //    	if(consultChildren(value) != null){
 //        		//pega a hora da atividade para passar como parametro no setHistogram 
 //        		setHistogram(1);
 //        		
 //    	}else{
-    		No no = new No(value);
+    		No no = new No(value,this.level+1);
     		children.add(no);
     		//precisa da hora da atividade para setHistogram
     		setHistogram(1);
@@ -123,13 +129,7 @@ public class No {
     	
     }
     
-    /**
-     * Metodo que altera o nivel do No.
-     * @param level Inteiro com qual nivel o No se encontra.
-     */
-    public void setLevel(int level){
-    	this.level = level;
-    }
+ 
     /**
      * Metodo que retona um array de No.
      * @return Array de No
@@ -152,5 +152,28 @@ public class No {
      */
     public int[] showHistrogram(){
     	return histogram;
+    }
+    
+    public String toString(){
+    	String output="";
+    	
+    	switch(level){
+    	case 0:
+    		output="User: "+((User)this.value)+"\n Tempos: "+this.children.toString();
+        	break;
+    	case 1:
+    		output="Tempo: "+((DateGroup)this.value)+"\n Equipamentos: "+this.children.toString();
+        	break;
+    	case 2:
+    		output="Equipamento: "+((Equipament)this.value)+"\n Atividade: "+this.children.toString();
+        	break;
+    	case 3:
+    		output="Atividade: "+((ActivityValue)this.value)+"\n Atributos: "+this.children.toString();
+        	break;
+    	case 4:
+    		output="Atributos: "+((UrlValue)this.value);
+        	break;
+    	}
+    	return output;
     }
 }

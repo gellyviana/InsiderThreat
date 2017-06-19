@@ -37,7 +37,7 @@ public class DateGroup extends Value {
 			dateEnd = LocalDate.parse(date2,d);
 		}else{
 			dateEnd = null;
-		}		
+		}
 	}
 	
 //	public void analyzerDate(){
@@ -69,5 +69,15 @@ public class DateGroup extends Value {
 	}
 	public LocalDate getLocalDateBegin(){
 		return this.dateBegin;
+	}
+	public String toString(){
+		String output="";
+		if(dateBegin==null){
+			output="null"+","+dateEnd.toString();
+		}else if (dateEnd == null){
+			output= dateBegin.toString()+",null";
+		}else
+			output=dateBegin.toString()+","+dateEnd.toString();
+		return "Intervalo: ["+output+"]";
 	}
 }

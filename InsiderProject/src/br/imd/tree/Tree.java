@@ -144,6 +144,6 @@ public class Tree {
 //	}
 
 	public void printTree() {
-		System.out.println(root.getValue());
+		System.out.println(root);
 	}
 }
