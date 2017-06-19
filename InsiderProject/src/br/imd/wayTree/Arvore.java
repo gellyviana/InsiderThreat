@@ -2,6 +2,13 @@ package br.imd.wayTree;
 
 import br.imd.factory.User;
 
+/**
+ * Classe criada para auxiliar na criação da interface 
+ * de arvore da cada Usuario.
+ * 
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.14
+ */
 public class Arvore {
 
 	private User user;

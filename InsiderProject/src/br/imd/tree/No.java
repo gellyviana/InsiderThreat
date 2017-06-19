@@ -18,6 +18,7 @@ import br.imd.tree.Value;
 public class No {	
 	//O valor que vai conter no No.
 	private Value value;
+	//Array de No's.
 	private ArrayList<No> children;
 	//O Array de inteiros que contem o histograma.
 	private int[] histogram;
@@ -36,6 +37,10 @@ public class No {
     	this.histogram = new int[24];
     	this.level = level;
     }
+	/**
+	 * Contrutor para setar o o No na arvore
+	 * @param value
+	 */
 	public No(Value value) {
     	this.value = value;
     	this.children = new ArrayList<No>(); 
@@ -59,6 +64,12 @@ public class No {
 	        this.value = value;
 	 }
 	
+	 /**
+	  * Metodo que verificar a existencia de uma No no Array,
+	  * retornando o mesmo.
+	  * @param value
+	  * @return no
+	  */
     public No consultChildren(Value value){
         	
     	for(No v: children){
@@ -68,11 +79,12 @@ public class No {
     	} 
     	return null;
     }
- /**
-  *    
-  * @param value
-  * @return No 
-  */
+    
+	 /**
+	  * Metodo que inseri um No no Array. 
+	  * @param value
+	  * @return No 
+	  */
     public No insertChildren(Value value){
     		No no = new No(value,this.level+1);
     		children.add(no);
@@ -99,7 +111,6 @@ public class No {
     	
     }
     
- 
     /**
      * Metodo que retona um array de No.
      * @return Array de No
@@ -107,6 +118,7 @@ public class No {
     public ArrayList<No> getChildren(){
     	return children;
     }
+    
     /**
      * Metodo que incrementa o histograma na posicao que se
      * encontra a hora que ocorreu a atividade.
@@ -125,7 +137,7 @@ public class No {
     }
     /**
      * Classe que imprime o conteúdo de cada No
-     * 
+     * @return O conteudo do No.
      */
     public String toString(){
     	String output="";

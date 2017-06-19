@@ -1,9 +1,15 @@
 package br.imd.wayTree;
 
 import java.util.ArrayList;
-
 import br.imd.factory.Http;
 
+/**
+ * Classe criada para capturar o historico de 
+ * Url's que um determinado usuario utilizou.
+ * 
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.14
+ */
 public class HttpHist {
 
 	private ArrayList<Http> httpRegs;

@@ -63,13 +63,15 @@ public class Tree {
 				break;
 			}
 		}
+		//Parte para a criação e inserção do Array correspondente aos Equipamentos.
 		child = dad.consultChildren(new Equipament(activity));
 		if(child == null ){
 			child = dad.insertChildren(new Equipament(activity));
 			child.setHistogram(activity.getTime().getHour());
 		}
+		
 		dad = child;
-
+		//Criação e inserção de atividades
 		child = dad.consultChildren(new ActivityValue(activity));
 		if(child == null ){
 			child = dad.insertChildren(new ActivityValue(activity));
@@ -77,7 +79,7 @@ public class Tree {
 		}
 		
 		dad = child;
-
+		//Criação e inserção de Url's.
 		child = dad.consultChildren(new UrlValue(activity));
 		if(child == null ){
 			child = dad.insertChildren(new UrlValue(activity));
@@ -88,46 +90,9 @@ public class Tree {
 		return false;
 	}
 
-
-//	// todos esses metodos tem que vim do mesmo usuario
-//	// esse metodo deve analizar a data para saber se ela esta no array filho,
-//	// se tiver tem que incrementar, senao tem que adicionar
-//	public void dateAnalizer(Value date){
-//		if(!root.analizerLevel(date)){
-//			root.setValue(date);
-//			root.setLevel(1);
-//		}
-//	}
-//
-//	// esse metodo deve analizar a equipament para saber se ela esta no array
-//	// filho, se tiver tem que incrementar, senao tem que adicionar
-//	public void equipamentAnalizer(Value equipament){ 
-//		if(!root.analizerLevel(equipament)){
-//			root.insertChildren(equipament);
-//			root.setLevel(2);
-//		}
-//	}
-//	
-//	// esse metodo deve analizar a activity para saber se ela esta no array
-//	// filho, se tiver tem que incrementar, senao tem que adicionar
-//	public void activityAnalizer(Value activity){
-//		if(!root.analizerLevel(activity)){
-//			root.insertChildren(activity);
-//			root.setLevel(3);
-//		}
-//			
-//	}
-//
-//
-//	// esse metodo deve analizar a data para saber se ela esta no array filho,
-//	// se tiver tem que incrementar, senao tem que adicionar
-//	public void existUrl(Value url) {
-//		if(!root.analizerLevel(url)){
-//			root.insertChildren(url);
-//			root.setLevel(4);
-//		}
-//	}
-
+	/**
+	 * Metodo que imprime a raiz de uma arvore.
+	 */
 	public void printTree() {
 		System.out.println(root);
 	}

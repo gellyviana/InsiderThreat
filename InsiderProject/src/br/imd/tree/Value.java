@@ -11,96 +11,20 @@ package br.imd.tree;
  */
 public abstract class Value {
 	
-	private int hour;
+	private int hourActivity;
 
-	public int getHour() {
-		return hour;
+	/**
+	 * Metodo para retornar a hora da atividade.
+	 * @return hourActivity
+	 */
+	public int getHourActivity() {
+		return hourActivity;
 	}
-
-	public void setHour(int hour) {
-		this.hour = hour;
+	/**
+	 * Metodo para setar a hora da atividade.
+	 * @param hourActivity
+	 */
+	public void setHourActivity(int hourActivity) {
+		this.hourActivity = hourActivity;
 	}
-	
-	/**
-	 * Construtor que gera um valor do  
-	 * tipo usuario. 
-	 * @param user Um usuario.
-	 */
-	/*public Value(User user){
-		this.user = user;
-	}*/
-	
-	/**
-	 * Construtor que gera um valor do  
-	 * tipo data grupo. 
-	 * @param roup Um agrupamento de data.
-	 */
-//	public Value(LocalDate dateGroup){
-//		this.dateGroup = dateGroup;
-//	}
-	
-	/**
-	 * Construtor que gera um valor do
-	 * tipo equipamento.
-	 * @param equipament Uma string com o equipamento
-	 * que ocorreu a atividade.
-	 */
-//	public Value(String equipament){
-//		this.equipament = equipament;
-//	}
-	
-	/**
-	 * Construtor que gera um valor do
-	 * tipo atividade.
-	 * @param activity Uma atividade.
-	 */
-//	public Value(Activity activity){
-//		this.activity = activity;
-//	}
-	
-	/**
-	 * Metodo que altera o usuario que 
-	 * vai conter em valor.
-	 * @param user Usuario que foi alterado.
-//	 */
-//	public void setUser(User user){
-//		this.user = user;
-//	}
-	
-	/**
-	 * Metodo que retorna qual usuario esta em
-	 * valor.
-	 * @return User O usuario que tem em valor.
-	 */
-//	public User getUser(){
-//		return this.user;
-//	}
-	
-	/**
-	 * Metodo que retorna o grupamento de data
-	 * que contem em valor.
-	 * @return dateGroup Um grupamento de data.
-	 */
-//	public LocalDate getDataGroup(){
-//		return this.dateGroup;
-//	}
-	
-	/**
-	 * Metodo que retorna uma string com o
-	 * equipamento que contem em valor.
-	 * @return equipament String que contem o 
-	 * equipamento.
-	 */
-//	public String getEquipament(){
-//		return this.equipament;
-//	}
-	
-	/**
-	 * Metodo que retorna a atividade que 
-	 * contem em valor.
-	 * @return activity A atividade.
-	 */
-//	public Activity getActivity(){
-//		return this.activity;
-//	}
 }

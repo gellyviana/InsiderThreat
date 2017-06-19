@@ -90,7 +90,9 @@ public class MainView extends JFrame implements ActionListener {
 		if (e.getSource() == mSair) {
 				System.exit(0);	
 		}else if(e.getSource() == mHelp){
-			
+			HelpUser help = new HelpUser("");
+			dtp.add(help);
+			help.setVisible(true);
 		}else if(e.getSource() == fileCarregar){
 			CarregarArquivos carregar = new CarregarArquivos("Seleção por Data");
 			dtp.add(carregar);

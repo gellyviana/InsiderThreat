@@ -14,8 +14,9 @@ import br.imd.factory.Maneger;
 /**
  * Classe reponsável em colocar para leitura os arquivos e 
  * carregar nas arvores.
+ * 
  * @author Adriana Azevedo e Gelly Viana
- *
+ * @version 2017.06.14
  */
 public class CarregarArquivos extends JInternalFrame {
 
