@@ -8,6 +8,7 @@ public class UrlValue extends Value{
 	private String urlValue;
 	
 	public UrlValue(Activity activity){
+		setHour(activity.getTime().getHour());
 		if(activity instanceof Http){
 			urlValue= ((Http)activity).getAction();	
 		}	

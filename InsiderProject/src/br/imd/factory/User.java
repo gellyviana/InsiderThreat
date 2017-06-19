@@ -1,6 +1,5 @@
 package br.imd.factory;
 
-import br.imd.tree.Tree;
 import br.imd.tree.Value;
 
 /**
@@ -26,11 +25,6 @@ public class User extends Value{
 	private String domain;
 	//A string com a funcao do usuario.
 	private String role;
-	//O array que ira armazenar os campos da 
-	//linha do arquivo de usuario lido. 
-	private String[] userLine;
-	//A arvore do usuario.
-	private Tree tree;
 	
 	/**
 	 * Construtor que vai instanciar o usuario
@@ -43,14 +37,6 @@ public class User extends Value{
 		this.email = userLine[3];
 		this.domain = userLine[2];
 		this.role = userLine[4];
-	}
-	
-	/** Esse metodo vai se manter ou sair???????????????
-	 * Metodo 
-	 * @param user
-	 */
-	public User(User user){
-		//tree = new Tree(Value no);
 	}
 	/**
 	 * Metodo que retorna o nome do usuario.

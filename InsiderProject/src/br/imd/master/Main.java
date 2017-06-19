@@ -1,39 +1,19 @@
 package br.imd.master;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-
-import br.imd.factory.Activity;
-import br.imd.factory.Device;
-import br.imd.factory.Http;
-import br.imd.factory.Logon;
-import br.imd.factory.Maneger;
-import br.imd.factory.User;
-import br.imd.tree.DateGroup;
-import br.imd.tree.Tree;
 import br.imd.view.MainView;
-
+/**
+ * Classe Principal que chama o metodo para interface do Usuário.
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.14
+ */
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-//	    Maneger maneger = new Maneger();
-//	    maneger.readUser("ldap.csv");
-//	    DateGroup date = new DateGroup(LocalDate.parse("2012-05-01"), LocalDate.parse("2012-05-01"));
-//		ArrayList<Tree> forest = maneger.getForest();
-		
-//		maneger.readActivity("device.csv");
-		
-		//maneger.readActivity("logon-sumarizado.csv");
-		
-		//maneger.readActivity("http-sumarizado.csv");
-//		maneger.getForest();
+
+		//Visualização da tela 
 		MainView v = new MainView();
 		v.setVisible(true);
-//		
-		//LocalDate date = LocalDate.parse("2012-05-01");
 		
 		//Exemplo para se usar.
 //		String [] line1 = {"Gelly", "102", "gellyviana@outlook.com", "ufrn", "nada"};

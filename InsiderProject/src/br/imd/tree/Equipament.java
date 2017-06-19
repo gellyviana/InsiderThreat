@@ -7,6 +7,7 @@ public class Equipament extends Value{
 	private String equipament;
 	
 	public Equipament(Activity activity){
+		setHour(activity.getTime().getHour());
 		this.equipament = activity.getEquipament();
 	}
 	public String getEquipament(){

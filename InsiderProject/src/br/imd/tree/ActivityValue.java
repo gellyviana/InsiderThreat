@@ -4,11 +4,18 @@ import br.imd.factory.Activity;
 import br.imd.factory.Device;
 import br.imd.factory.Logon;
 
+/**
+ * Classe que verifica se uma atividade é instancia de 
+ * Logon  ou Device.
+ * @author Adriana Azevedo e Gelly Viana
+ *
+ */
 public class ActivityValue extends Value{
 	
-	String activity;
+	private String activity;
 	
 	public ActivityValue(Activity activity){
+		setHour(activity.getTime().getHour());
 		if(activity instanceof Logon){
 			this.activity = ((Logon)activity).getAction();
 		}else if(activity instanceof Device){

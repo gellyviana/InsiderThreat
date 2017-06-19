@@ -1,6 +1,5 @@
 package br.imd.tree;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 //import java.util.ArrayList;
@@ -59,35 +58,7 @@ public class No {
 	 public void setValue(Value value) {
 	        this.value = value;
 	 }
-	 /*
-	 public boolean analizerLevel(Value value){
-		 if(value instanceof DateGroup){
-			 for(Value v : children){
-				 if(v.equals(value)){
-					 return true;
-				 }
-			 }
-		 }else if(value instanceof UrlValue){
-			 for(Value v : children){
-				 if(v.equals(value)){
-					 return true;
-				 }
-			 }
-		 }else if(value instanceof Equipament){
-			 for(Value v : children){
-				 if(v.equals(value)){
-					 return true;
-				 }
-			 }
-		 }else if(value instanceof ActivityValue){
-			 for(Value v : children){
-				 if(v.equals(value)){
-					 return true;
-				 }
-			 }
-		 }
-		 return false;
-	 }*/
+	
     public No consultChildren(Value value){
         	
     	for(No v: children){
@@ -97,13 +68,12 @@ public class No {
     	} 
     	return null;
     }
-    
+ /**
+  *    
+  * @param value
+  * @return No 
+  */
     public No insertChildren(Value value){
-//    	if(consultChildren(value) != null){
-//        		//pega a hora da atividade para passar como parametro no setHistogram 
-//        		setHistogram(1);
-//        		
-//    	}else{
     		No no = new No(value,this.level+1);
     		children.add(no);
     		//precisa da hora da atividade para setHistogram
@@ -153,7 +123,10 @@ public class No {
     public int[] showHistrogram(){
     	return histogram;
     }
-    
+    /**
+     * Classe que imprime o conteúdo de cada No
+     * 
+     */
     public String toString(){
     	String output="";
     	

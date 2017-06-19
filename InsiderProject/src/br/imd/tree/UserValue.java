@@ -1,7 +1,12 @@
 package br.imd.tree;
 
 import br.imd.factory.User;
-
+/**
+ * Classe 
+ * 
+ * @author Adriana Azevedo e Gelly Viana
+ * @version 2017.06.14
+ */
 public class UserValue extends Value{
 	
 	private String idUser;

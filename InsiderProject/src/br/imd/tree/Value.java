@@ -11,15 +11,15 @@ package br.imd.tree;
  */
 public abstract class Value {
 	
-	//O usuario que vai representar o valor.
-	/*private User user;
-	//O grupo de data que vai ocorrer.
-	private LocalDate dateGroup;
-	//Uma string que contem o equipamento em que ocorreu 
-	//a atividade.
-	private String equipament;
-	//A atividade que o usuario praticou.
-	private Activity activity;*/
+	private int hour;
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
 	
 	/**
 	 * Construtor que gera um valor do  

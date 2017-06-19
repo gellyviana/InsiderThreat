@@ -10,7 +10,9 @@ package br.imd.read;
  * Livro Programação orientada a objetos com JAVA
  * David J. Barnes and Michael Kolling (versão 2008.03.30) 
  * @author Adriana Azevedo e Gelly Viana
- * @version 2017.06.04 */
+ * @version 2017.06.04 
+ * 
+ */
 public class LogEntry implements Comparable<LogEntry>{
 	//Onde os valores dos campos de uma simples linha de 
 	//um arquivo csv são armazenados
@@ -78,22 +80,6 @@ public class LogEntry implements Comparable<LogEntry>{
 	public String[] getFields(){
 		return fieldValues;
 	}
-	
-	/**
-	 * Cria uma string com representação da data.
-	 * Essa não é necessariamente igual ao texto 
-	 * original da linha de log.
-	 * @return Uma string representando a data desse entry.
-	 */
-	//public String toString(){
-		//StringBuffer buffer = new StringBuffer();
-		//for (int value : fieldValues){
-		//	buffer.append(value);
-		//	buffer.append(' ');
-		//}
-		// Pula qualquer espaço final
-		//return buffer.toString().trim();
-	//}
     /**
      * Compare the date/time combination of this log entry
      * with another.

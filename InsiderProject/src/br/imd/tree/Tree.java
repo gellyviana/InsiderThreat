@@ -56,6 +56,7 @@ public class Tree {
 	public boolean insert(Activity activity){
 		No dad = null;
 		No child = null;
+		//Inserção dos Nos correspondente aos agrupamento de datas.
 		for (No no : root.getChildren()){
 			if(((DateGroup) no.getValue()).isInGroup(activity.getDate())){
 				dad = no;
@@ -65,12 +66,14 @@ public class Tree {
 		child = dad.consultChildren(new Equipament(activity));
 		if(child == null ){
 			child = dad.insertChildren(new Equipament(activity));
+			child.setHistogram(activity.getTime().getHour());
 		}
 		dad = child;
 
 		child = dad.consultChildren(new ActivityValue(activity));
 		if(child == null ){
 			child = dad.insertChildren(new ActivityValue(activity));
+			child.setHistogram(activity.getTime().getHour());
 		}
 		
 		dad = child;
@@ -78,26 +81,12 @@ public class Tree {
 		child = dad.consultChildren(new UrlValue(activity));
 		if(child == null ){
 			child = dad.insertChildren(new UrlValue(activity));
+			child.setHistogram(activity.getTime().getHour());
 		}
 		
 		
 		return false;
 	}
-	/**
-	 * Metodo que verifica se a subarvore
-	 * contem um no.
-	 * @param no A arvore. (????)
-	 * @return true Se o No se encontra na arvore.
-	 * 		   false Se o No nao se encontra na arvore
-	 */
-//	public boolean searchNo(Tree no){
-//		for(Tree tree: this.subTree){
-//			if(no.root.getValue() == tree.getRoot().getValue()){
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
 
 
 //	// todos esses metodos tem que vim do mesmo usuario

@@ -6,12 +6,13 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Classe para representar um intervalo de tempo.
- * Temos dateInicio e dateFim.
+ * Temos dateEnd e dateBegin.
  * Se os dois forem diferentes de nulo então considero um intervalo
  * Se dateFim for igual a nulo então tenho um dia especifico e 
  * Se me dateInicio for nula eu tenho o passado.
+ * 
  * @author Adriana Azevedo e Gelly Viana
- *
+ * @version 2017.06.14
  */
 
 public class DateGroup extends Value {
@@ -23,8 +24,8 @@ public class DateGroup extends Value {
 	 * @param String dateInicio
 	 */
 	public DateGroup(String date1, String date2){
-		
-		DateTimeFormatter d = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	
+		DateTimeFormatter d = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		if(date1 != null){
 			dateBegin = LocalDate.parse(date1,d);
 		}else{
@@ -49,12 +50,25 @@ public class DateGroup extends Value {
 		}
 		return localDate.isBefore(dateEnd) && localDate.isAfter(dateBegin);
 	}
+	/**
+	 * 
+	 * @return dataEnd
+	 */
 	public LocalDate getLocalDateEnd(){
 		return this.dateEnd;
 	}
+	
+	/**
+	 * 
+	 * @return dateBegin
+	 */
 	public LocalDate getLocalDateBegin(){
 		return this.dateBegin;
 	}
+	/**
+	 * 
+	 * @return 
+	 */
 	public String toString(){
 		String output="";
 		if(dateBegin==null){

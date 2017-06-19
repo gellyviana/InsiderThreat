@@ -62,10 +62,10 @@ public class CarregarArquivos extends JInternalFrame {
             public void actionPerformed(ActionEvent e) {
             	
     			Maneger maneger = new Maneger();
-    			maneger.readUser("ldap.csv", tDataInicio.getText(), tDataFim.getText());
-    			maneger.readActivity("device.csv");
-    			maneger.readActivity("logon-sumarizado.csv");
-    			maneger.readActivity("http-sumarizado.csv");
+    			maneger.readUser("ldapTest.csv", tDataInicio.getText(), tDataFim.getText());
+    			maneger.readActivity("deviceTest.csv");
+    			maneger.readActivity("logonTest.csv");
+    			maneger.readActivity("httpTest.csv");
     			
     			tDataInicio.setText("");
     			tDataFim.setText("");

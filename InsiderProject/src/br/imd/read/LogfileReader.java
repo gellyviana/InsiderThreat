@@ -17,7 +17,8 @@ import java.util.Scanner;
  * Livro Programação orientada a objetos com JAVA
  * David J. Barnes and Michael Kolling (versão 2008.03.30) 
  * @author Adriana Azevedo e Gelly Viana
- * @version 2017.06.04 */
+ * @version 2017.06.04 
+ * */
 public class LogfileReader
 {
 	// O formato dos dados no arquivo de log.
@@ -27,7 +28,7 @@ public class LogfileReader
     private ArrayList<LogEntry> entries;
     // An iterator over entries.
     private Iterator<LogEntry> dataIterator;
-    //String que contem a linha do arquivo(??? sera que deve manter)
+    //String que contem a linha do arquivo
     private String logline;
     
     /**
